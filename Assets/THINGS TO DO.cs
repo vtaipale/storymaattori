@@ -27,17 +27,23 @@ public class THINGSTODO : MonoBehaviour {
 			More EVENTS
 				Close Combat
 				Helping other soldiers
-				first aid
+				first aid!!
 
 		DIFFERENT TYPES OF MISSIONS 
 			Special Events to different mission
 				Defence - only chance of combat!
 				Ambush - only chance of combat but  devastatingly good results
-				Patrol - slight chance of combat (enemy ambush too)
+				Patrol - add - enemy ambush too
 			Road to mission & back
 				Chance for AMBUSH and walk on mine
 			DIFFERENT AMOUNT OF SOLDIERS ACCEPTED TO MISSIONS
 
+		VEHICLES
+			JEEP
+			APC
+			TANK
+			FLYER
+			EXOTIC - hover? DIGGER?
 
 		Player decisions
 			Yes/No events 

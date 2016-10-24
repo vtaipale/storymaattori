@@ -100,7 +100,12 @@ public class Mission : MonoBehaviour {
 
 			if ((this.type != "Vacation")  )		//Show battle notification if NOT vacation or NOT Patrol with no encounter
 			{
-				if (this.type == "Patrol" && this.Hostiles > 0)
+				if (this.type == "Patrol" && this.Hostiles == 0)	//special bit for non-combat patrol missions
+				{
+					returned += "--The location was clear of enemy activity!\n";
+					
+				}
+				else
 				{
 					if (this.type == "Patrol") // if partrol where is enemies print this special addition
 					{
@@ -121,11 +126,6 @@ public class Mission : MonoBehaviour {
 					returned += "--During the mission soldiers killed: ";
 
 					returned += thisMissionKills + "\n";
-				}
-				else if (this.type == "Patrol" && this.Hostiles == 0)	//special bit for non-combat patrol missions
-				{
-					returned += "--The location was clear of enemy activity!\n";
-
 				}
 			}
 

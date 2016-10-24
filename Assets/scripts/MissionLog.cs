@@ -4,8 +4,11 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 
-//Creates missions and handles them : MISSION SEND IS IN HERE!
-
+//
+/// <summary>
+/// Mission log.
+/// Creates missions and handles them : MISSION SEND IS IN HERE!
+/// </summary>
 public class MissionLog : MonoBehaviour {
 
 	public Text missionText;
@@ -191,7 +194,7 @@ public class MissionLog : MonoBehaviour {
 				control.Fight (manager.squadIds, mission.difficulty, missions [currentlyAdded]);
 			}
 
-			Debug.Log ("writing to log...");
+			Debug.Log ("ADDSQUAD: writing to log...");
 			UpdateLog ();
 
 			if (VictoryMatters)
@@ -215,7 +218,9 @@ public class MissionLog : MonoBehaviour {
 			this.AddMission();		// NEW MISSION IS CREATED
 		}
 	}
-	
+	/// <summary>
+	/// Updates log with lots of data!
+	/// </summary>
 	public void UpdateLog()
 	{
 
@@ -227,9 +232,9 @@ public class MissionLog : MonoBehaviour {
 
 
 
-		this.missionText.rectTransform.sizeDelta = new Vector2(359, missionText.text.Length);
+		this.missionText.rectTransform.sizeDelta = new Vector2(359f, (missionText.text.Length*1.1f));
 
-		this.BG.sizeDelta = new Vector2( 0 , missionText.text.Length);
+		this.BG.sizeDelta = new Vector2( 0f , (missionText.text.Length*1.1f));
 
 		missionText.text += "\n\n";
 
@@ -238,7 +243,9 @@ public class MissionLog : MonoBehaviour {
 		
 		currentlyAdded++;
 	}
-
+	/// <summary>
+	/// Exports ALL DATA TO txt file in D:\Storymaattori_HistoryExport_ + CampaingYear + Timestamp
+	/// </summary>
 	public void EXPORT()
 	{
 		string returnoitava = "";
