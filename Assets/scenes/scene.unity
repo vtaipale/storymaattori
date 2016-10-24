@@ -6119,7 +6119,7 @@ RectTransform:
   m_Father: {fileID: 431267938}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: .5, y: .5}
@@ -9816,7 +9816,7 @@ RectTransform:
   m_Father: {fileID: 107997998}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: .5, y: .5}
@@ -12655,6 +12655,11 @@ MonoBehaviour:
   FH3: {fileID: 21300000, guid: 0a3af8a69498e3246b00bcee2841993d, type: 3}
   FH4: {fileID: 21300000, guid: 9889b6c1da945f8439ee9bfc487f8ed9, type: 3}
   FH5: {fileID: 21300000, guid: a883df9fe77b52644b51a12723966345, type: 3}
+  BAR1: {fileID: 21300000, guid: f3841c5fd90be94479c78438c0534303, type: 3}
+  BAR2: {fileID: 21300000, guid: 39a0db475c9925642be829185fbca742, type: 3}
+  BAR3: {fileID: 21300000, guid: 363b0d91ba357244688e468051bf4677, type: 3}
+  BAR4: {fileID: 21300000, guid: 2fcb66ad7a8a97e45870150f40773283, type: 3}
+  BAR5: {fileID: 21300000, guid: ff9f15cc28de0c249b88ee6dd5e78fb0, type: 3}
 --- !u!1 &1807681303
 GameObject:
   m_ObjectHideFlags: 0
@@ -14256,6 +14261,11 @@ MonoBehaviour:
   FH3: {fileID: 21300000, guid: 0a3af8a69498e3246b00bcee2841993d, type: 3}
   FH4: {fileID: 21300000, guid: 9889b6c1da945f8439ee9bfc487f8ed9, type: 3}
   FH5: {fileID: 21300000, guid: a883df9fe77b52644b51a12723966345, type: 3}
+  BAR1: {fileID: 21300000, guid: f3841c5fd90be94479c78438c0534303, type: 3}
+  BAR2: {fileID: 21300000, guid: 39a0db475c9925642be829185fbca742, type: 3}
+  BAR3: {fileID: 21300000, guid: 363b0d91ba357244688e468051bf4677, type: 3}
+  BAR4: {fileID: 21300000, guid: 2fcb66ad7a8a97e45870150f40773283, type: 3}
+  BAR5: {fileID: 21300000, guid: ff9f15cc28de0c249b88ee6dd5e78fb0, type: 3}
 --- !u!1 &2001011654
 GameObject:
   m_ObjectHideFlags: 0

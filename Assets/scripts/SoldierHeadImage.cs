@@ -28,29 +28,40 @@ public class SoldierHeadImage : MonoBehaviour {
 	public Sprite Scratch1;
 	public Sprite Scratch2;
 
+	// MALE HEADS
 	public Sprite M1;
 	public Sprite M2;
 	public Sprite M3;
 	public Sprite M4;
 	public Sprite M5;
 
+	// FEMALE HEADS
 	public Sprite F1;
 	public Sprite F2;
 	public Sprite F3;
 	public Sprite F4;
 	public Sprite F5;
-
+	
+	// MALE HAIRs
 	public Sprite MH1;
 	public Sprite MH2;
 	public Sprite MH3;
 	public Sprite MH4;
 	public Sprite MH5;
-	
+
+	// FEMALE HAIRs
 	public Sprite FH1;
 	public Sprite FH2;
 	public Sprite FH3;
 	public Sprite FH4;
 	public Sprite FH5;
+
+	// HAIR REPLACING BARCODES
+	public Sprite BAR1;
+	public Sprite BAR2;
+	public Sprite BAR3;
+	public Sprite BAR4;
+	public Sprite BAR5;
 
 	public void Set(SoldierController solttu)
 	{
@@ -90,19 +101,19 @@ public class SoldierHeadImage : MonoBehaviour {
 				{
 					HeadImage.overrideSprite = M1;
 				}
-				if (ImageNumber == 2)
+				else if (ImageNumber == 2)
 				{
 					HeadImage.overrideSprite = M2;
 				}
-				if (ImageNumber == 3)
+				else if (ImageNumber == 3)
 				{
 					HeadImage.overrideSprite = M3;
 				}
-				if (ImageNumber == 4)
+				else if (ImageNumber == 4)
 				{
 					HeadImage.overrideSprite = M4;
 				}
-				if (ImageNumber == 5)
+				else if (ImageNumber == 5)
 				{
 					HeadImage.overrideSprite = M5;
 				}
@@ -114,19 +125,19 @@ public class SoldierHeadImage : MonoBehaviour {
 				{
 					HeadImage.overrideSprite = F1;
 				}
-				if (ImageNumber == 2)
+				else if (ImageNumber == 2)
 				{
 					HeadImage.overrideSprite = F2;
 				}
-				if (ImageNumber == 3)
+				else if (ImageNumber == 3)
 				{
 					HeadImage.overrideSprite = F3;
 				}
-				if (ImageNumber == 4)
+				else if (ImageNumber == 4)
 				{
 					HeadImage.overrideSprite = F4;
 				}
-				if (ImageNumber == 5)
+				else if (ImageNumber == 5)
 				{
 					HeadImage.overrideSprite = F5;
 				}
@@ -139,21 +150,41 @@ public class SoldierHeadImage : MonoBehaviour {
 				{
 					HairImage.overrideSprite = MH1;
 				}
-				if (target.hairID == 2)
+				else if (target.hairID == 2)
 				{
 					HairImage.overrideSprite = MH2;
 				}
-				if (target.hairID == 3)
+				else if (target.hairID == 3)
 				{
 					HairImage.overrideSprite = MH3;
 				}
-				if (target.hairID == 4)
+				else if (target.hairID == 4)
 				{
 					HairImage.overrideSprite = MH4;
 				}
-				if (target.hairID == 5)
+				else if (target.hairID == 5)
 				{
 					HairImage.overrideSprite = MH5;
+				}
+				else if (target.hairID == 6)
+				{
+					HairImage.overrideSprite = BAR1;
+				}
+				else if (target.hairID == 7)
+				{
+					HairImage.overrideSprite = BAR2;
+				}
+				else if (target.hairID == 8)
+				{
+					HairImage.overrideSprite = BAR3;
+				}
+				else if (target.hairID == 9)
+				{
+					HairImage.overrideSprite = BAR4;
+				}
+				else if (target.hairID == 10)
+				{
+					HairImage.overrideSprite = BAR5;
 				}
 				
 			}
@@ -163,21 +194,41 @@ public class SoldierHeadImage : MonoBehaviour {
 				{
 					HairImage.overrideSprite = FH1;
 				}
-				if (target.hairID == 2)
+				else if (target.hairID == 2)
 				{
 					HairImage.overrideSprite = FH2;
 				}
-				if (target.hairID == 3)
+				else if (target.hairID == 3)
 				{
 					HairImage.overrideSprite = FH3;
 				}
-				if (target.hairID == 4)
+				else if (target.hairID == 4)
 				{
 					HairImage.overrideSprite = FH4;
 				}
-				if (target.hairID == 5)
+				else if (target.hairID == 5)
 				{
 					HairImage.overrideSprite = FH5;
+				}
+				else if (target.hairID == 6)
+				{
+					HairImage.overrideSprite = BAR1;
+				}
+				else if (target.hairID == 7)
+				{
+					HairImage.overrideSprite = BAR2;
+				}
+				else if (target.hairID == 8)
+				{
+					HairImage.overrideSprite = BAR3;
+				}
+				else if (target.hairID == 9)
+				{
+					HairImage.overrideSprite = BAR4;
+				}
+				else if (target.hairID == 10)
+				{
+					HairImage.overrideSprite = BAR5;
 				}
 				
 			}

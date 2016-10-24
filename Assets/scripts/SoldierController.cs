@@ -68,7 +68,7 @@ public class SoldierController : ScriptableObject {
 		}
 
 		this.pictureID = (Mathf.RoundToInt(Random.Range(0, 5.4f)));
-		this.hairID = (Mathf.RoundToInt(Random.Range(1, 5.4f)));
+		this.hairID = (Mathf.RoundToInt(Random.Range(1, 10.4f)));
 		
 		int FNameRandomiser = Random.Range(0, 12);
 		
