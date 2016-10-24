@@ -17,16 +17,20 @@ public class SoldierHeadImage : MonoBehaviour {
 	public Image RoboVisionImage;
 	public Image ArmorImage;
 	public Image ScratchesImage;
+	
+	public Image RankShower;
 
 	public Sprite Helm_Open;
 	public Sprite Helm_Closed;
 	public Sprite Helm_Noob;
 		
-	public Sprite RoboEye;
+	public Sprite RoboEye_Left;
+	public Sprite RoboEye_Right;	
 	public Sprite RoboVision;
 
 	public Sprite Scratch1;
 	public Sprite Scratch2;
+
 
 	// MALE HEADS
 	public Sprite M1;
@@ -34,6 +38,8 @@ public class SoldierHeadImage : MonoBehaviour {
 	public Sprite M3;
 	public Sprite M4;
 	public Sprite M5;
+	public Sprite M6;
+	public Sprite M7;
 
 	// FEMALE HEADS
 	public Sprite F1;
@@ -41,6 +47,8 @@ public class SoldierHeadImage : MonoBehaviour {
 	public Sprite F3;
 	public Sprite F4;
 	public Sprite F5;
+	public Sprite F6;
+	public Sprite F7;
 	
 	// MALE HAIRs
 	public Sprite MH1;
@@ -62,6 +70,13 @@ public class SoldierHeadImage : MonoBehaviour {
 	public Sprite BAR3;
 	public Sprite BAR4;
 	public Sprite BAR5;
+
+	//RANK MARKS
+	public Sprite RANK_ROOKIE;
+	public Sprite RANK_TROOPER;
+	public Sprite RANK_CORPORAL;
+	public Sprite RANK_SERGEANT;
+	public Sprite RANK_LIUTENANT;
 
 	public void Set(SoldierController solttu)
 	{
@@ -117,6 +132,14 @@ public class SoldierHeadImage : MonoBehaviour {
 				{
 					HeadImage.overrideSprite = M5;
 				}
+				else if (ImageNumber == 6)
+				{
+					HeadImage.overrideSprite = M6;
+				}
+				else if (ImageNumber == 7)
+				{
+					HeadImage.overrideSprite = M7;
+				}
 				
 			}
 			else if (Sex == 'f')
@@ -140,6 +163,14 @@ public class SoldierHeadImage : MonoBehaviour {
 				else if (ImageNumber == 5)
 				{
 					HeadImage.overrideSprite = F5;
+				}
+				else if (ImageNumber == 6)
+				{
+					HeadImage.overrideSprite = F6;
+				}
+				else if (ImageNumber == 7)
+				{
+					HeadImage.overrideSprite = F7;
 				}
 				
 			}
@@ -236,7 +267,14 @@ public class SoldierHeadImage : MonoBehaviour {
 			if (target.HasAttribute("robo-eye"))
 			{
 				RoboVisionImage.enabled = true;
-				RoboVisionImage.overrideSprite = RoboEye;
+				if (target.soldierID%2==0)		// IFF even left, otherwise right! :P
+				{
+					RoboVisionImage.overrideSprite = RoboEye_Left;
+				}
+				else
+				{
+					RoboVisionImage.overrideSprite = RoboEye_Right;
+				}
 			}
 			else if (target.HasAttribute("robo-vision"))
 			{
@@ -254,12 +292,12 @@ public class SoldierHeadImage : MonoBehaviour {
 			ScratchesImage.enabled = true;
 			ScratchesImage.overrideSprite = Helm_Noob;
 		}
-		else if (target.rank > 0)
+		else if (target.kills > 4)
 		{
 			ScratchesImage.enabled = true;
 			ScratchesImage.overrideSprite = Scratch1;
 		}
-		else if (target.rank > 3)
+		else if (target.kills > 8 && target.HasAttribute("veteran"))
 		{
 			ScratchesImage.enabled = true;
 			ScratchesImage.overrideSprite = Scratch2;
@@ -267,6 +305,33 @@ public class SoldierHeadImage : MonoBehaviour {
 		else 
 		{
 			ScratchesImage.enabled = false;
+		}
+
+
+			//RANK
+		if (target.rank == 0 )	// RECRUIT
+		{
+			RankShower.overrideSprite = RANK_ROOKIE;
+		}
+		else if (target.rank == 1)	//TROOP
+		{
+			RankShower.overrideSprite = RANK_TROOPER;
+		}
+		else if (target.rank == 2)	//CORP
+		{
+			RankShower.overrideSprite = RANK_CORPORAL;
+		}
+		else if (target.rank == 3)	//SGT
+		{
+			RankShower.overrideSprite = RANK_SERGEANT;
+		}
+		else if (target.rank == 4)	//LIUT
+		{
+			RankShower.overrideSprite = RANK_LIUTENANT;
+		}
+		else 
+		{
+			RankShower.overrideSprite = RANK_ROOKIE;
 		}
 	}
 }
