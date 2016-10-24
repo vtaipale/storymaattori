@@ -32,8 +32,7 @@ public class MissionLog : MonoBehaviour {
 
 			int MissionTypeChance = Random.Range(0, 100); 
 
-			//if (MissionTypeChance > 90)	//PATROL!
-			if (true)	//PATROL!
+			if (MissionTypeChance > 90)	//PATROL!
 			{
 				int targetSelect = Random.Range(0, 100);
 				
@@ -58,7 +57,7 @@ public class MissionLog : MonoBehaviour {
 				
 				
 			}
-			else if (MissionTypeChance > 90)	//Partyparty!
+			else if (MissionTypeChance > 80)	//Partyparty!
 			{
 				int targetSelect = Random.Range(0, 100);
 				
