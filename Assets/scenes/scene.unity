@@ -3779,6 +3779,73 @@ CanvasRenderer:
 Transform:
   m_PrefabParentObject: {fileID: 424246, guid: 88f47f6024076464285896594037557d, type: 2}
   m_PrefabInternal: {fileID: 1680008415}
+--- !u!1 &524408935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 524408936}
+  - 222: {fileID: 524408938}
+  - 114: {fileID: 524408937}
+  m_Layer: 5
+  m_Name: SHead RANK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!224 &524408936
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 524408935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2000718153}
+  m_RootOrder: 6
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 261, y: 168}
+  m_SizeDelta: {x: 150, y: 150}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &524408937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 524408935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: e71a1b632cb3e9845bf702d0a1855a22, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &524408938
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 524408935}
 --- !u!1 &562753703
 GameObject:
   m_ObjectHideFlags: 0
@@ -6089,6 +6156,73 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 930909378}
+--- !u!1 &932017498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 932017499}
+  - 222: {fileID: 932017501}
+  - 114: {fileID: 932017500}
+  m_Layer: 5
+  m_Name: SHead RANK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!224 &932017499
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 932017498}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1803811914}
+  m_RootOrder: 6
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 150, y: 150}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &932017500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 932017498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: a554510221489b14080a197908e94522, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &932017501
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 932017498}
 --- !u!1 &952978681
 GameObject:
   m_ObjectHideFlags: 0
@@ -6119,7 +6253,7 @@ RectTransform:
   m_Father: {fileID: 431267938}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: .5, y: .5}
@@ -9816,7 +9950,7 @@ RectTransform:
   m_Father: {fileID: 107997998}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: .5, y: .5}
@@ -12602,6 +12736,7 @@ RectTransform:
   - {fileID: 1387446483}
   - {fileID: 1980115136}
   - {fileID: 847317257}
+  - {fileID: 932017499}
   m_Father: {fileID: 1254627079}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
@@ -12628,10 +12763,12 @@ MonoBehaviour:
   RoboVisionImage: {fileID: 1387446484}
   ArmorImage: {fileID: 1980115137}
   ScratchesImage: {fileID: 847317258}
+  RankShower: {fileID: 932017500}
   Helm_Open: {fileID: 21300000, guid: 379e6f393249c0a4d8fa3a6ee1fae5e6, type: 3}
   Helm_Closed: {fileID: 21300000, guid: c7c4b0827ecf20442ab0c592c78b57f1, type: 3}
   Helm_Noob: {fileID: 21300000, guid: 9206c892e5fcf474d93859ceba3dd3ea, type: 3}
-  RoboEye: {fileID: 21300000, guid: 313c8c4d878fa5b4d8a388d3d17a51b5, type: 3}
+  RoboEye_Left: {fileID: 21300000, guid: 313c8c4d878fa5b4d8a388d3d17a51b5, type: 3}
+  RoboEye_Right: {fileID: 21300000, guid: a2388d8e307452b4eba53b58858c92e0, type: 3}
   RoboVision: {fileID: 21300000, guid: dc41ba8e130ec28488a873fda711e938, type: 3}
   Scratch1: {fileID: 21300000, guid: 78d238e158ac69f4fac1ecd753788ad4, type: 3}
   Scratch2: {fileID: 21300000, guid: 4a7fb34d2a4e4104e8d22c1c8145ab46, type: 3}
@@ -12640,11 +12777,15 @@ MonoBehaviour:
   M3: {fileID: 21300000, guid: ac9c167580ca482439e8f825b0b0bac1, type: 3}
   M4: {fileID: 21300000, guid: eb5b25bc468615a4eac733f32890c75a, type: 3}
   M5: {fileID: 21300000, guid: c422b968a11e62c44bcc9046a246dd13, type: 3}
+  M6: {fileID: 21300000, guid: 4ec73f2e6bc61cd48bda443970aa2627, type: 3}
+  M7: {fileID: 21300000, guid: 0502f213ed36f71439a63b6bf4e03dfc, type: 3}
   F1: {fileID: 21300000, guid: d83fbd101bd2f81429b3db2216ed0378, type: 3}
   F2: {fileID: 21300000, guid: 350a6791fe6043946b611b9f4b296731, type: 3}
   F3: {fileID: 21300000, guid: 26cde0ef77dfd96418fdf7d0dafdf2b3, type: 3}
   F4: {fileID: 21300000, guid: a238daa62ea27234cb56dbe3c105dfc5, type: 3}
   F5: {fileID: 21300000, guid: 5b37b61fbbe1b7b4cbed3c2e1ec1bd25, type: 3}
+  F6: {fileID: 21300000, guid: 1a440c7a9aacf324bbf571a54576e2e5, type: 3}
+  F7: {fileID: 21300000, guid: bbe8d05fae63d0d42a4e938a907979a7, type: 3}
   MH1: {fileID: 21300000, guid: f165aac23628f754b8a7c403feb39bd7, type: 3}
   MH2: {fileID: 21300000, guid: 79c69c23f02b97b4da80772b44ca39cf, type: 3}
   MH3: {fileID: 21300000, guid: 77a4890ec071a054ab1b6443921cab44, type: 3}
@@ -12655,6 +12796,16 @@ MonoBehaviour:
   FH3: {fileID: 21300000, guid: 0a3af8a69498e3246b00bcee2841993d, type: 3}
   FH4: {fileID: 21300000, guid: 9889b6c1da945f8439ee9bfc487f8ed9, type: 3}
   FH5: {fileID: 21300000, guid: a883df9fe77b52644b51a12723966345, type: 3}
+  BAR1: {fileID: 21300000, guid: f3841c5fd90be94479c78438c0534303, type: 3}
+  BAR2: {fileID: 21300000, guid: 39a0db475c9925642be829185fbca742, type: 3}
+  BAR3: {fileID: 21300000, guid: 363b0d91ba357244688e468051bf4677, type: 3}
+  BAR4: {fileID: 21300000, guid: 2fcb66ad7a8a97e45870150f40773283, type: 3}
+  BAR5: {fileID: 21300000, guid: ff9f15cc28de0c249b88ee6dd5e78fb0, type: 3}
+  RANK_ROOKIE: {fileID: 21300000, guid: 27d48da07b2d8684b872869bf96979f2, type: 3}
+  RANK_TROOPER: {fileID: 21300000, guid: 36fe29a465bcdeb4e87a036cff5f7ea4, type: 3}
+  RANK_CORPORAL: {fileID: 21300000, guid: e71a1b632cb3e9845bf702d0a1855a22, type: 3}
+  RANK_SERGEANT: {fileID: 21300000, guid: e26c31976d148e0408630891f26cf2c5, type: 3}
+  RANK_LIUTENANT: {fileID: 21300000, guid: a554510221489b14080a197908e94522, type: 3}
 --- !u!1 &1807681303
 GameObject:
   m_ObjectHideFlags: 0
@@ -14203,6 +14354,7 @@ RectTransform:
   - {fileID: 1037032262}
   - {fileID: 360458590}
   - {fileID: 930909379}
+  - {fileID: 524408936}
   m_Father: {fileID: 212114467}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
@@ -14229,10 +14381,12 @@ MonoBehaviour:
   RoboVisionImage: {fileID: 1037032263}
   ArmorImage: {fileID: 360458591}
   ScratchesImage: {fileID: 930909380}
+  RankShower: {fileID: 524408937}
   Helm_Open: {fileID: 21300000, guid: 379e6f393249c0a4d8fa3a6ee1fae5e6, type: 3}
   Helm_Closed: {fileID: 21300000, guid: c7c4b0827ecf20442ab0c592c78b57f1, type: 3}
   Helm_Noob: {fileID: 21300000, guid: 9206c892e5fcf474d93859ceba3dd3ea, type: 3}
-  RoboEye: {fileID: 21300000, guid: 313c8c4d878fa5b4d8a388d3d17a51b5, type: 3}
+  RoboEye_Left: {fileID: 21300000, guid: 313c8c4d878fa5b4d8a388d3d17a51b5, type: 3}
+  RoboEye_Right: {fileID: 21300000, guid: a2388d8e307452b4eba53b58858c92e0, type: 3}
   RoboVision: {fileID: 21300000, guid: dc41ba8e130ec28488a873fda711e938, type: 3}
   Scratch1: {fileID: 21300000, guid: 78d238e158ac69f4fac1ecd753788ad4, type: 3}
   Scratch2: {fileID: 21300000, guid: 4a7fb34d2a4e4104e8d22c1c8145ab46, type: 3}
@@ -14241,11 +14395,15 @@ MonoBehaviour:
   M3: {fileID: 21300000, guid: ac9c167580ca482439e8f825b0b0bac1, type: 3}
   M4: {fileID: 21300000, guid: eb5b25bc468615a4eac733f32890c75a, type: 3}
   M5: {fileID: 21300000, guid: c422b968a11e62c44bcc9046a246dd13, type: 3}
+  M6: {fileID: 21300000, guid: 4ec73f2e6bc61cd48bda443970aa2627, type: 3}
+  M7: {fileID: 21300000, guid: 0502f213ed36f71439a63b6bf4e03dfc, type: 3}
   F1: {fileID: 21300000, guid: d83fbd101bd2f81429b3db2216ed0378, type: 3}
   F2: {fileID: 21300000, guid: 350a6791fe6043946b611b9f4b296731, type: 3}
   F3: {fileID: 21300000, guid: 26cde0ef77dfd96418fdf7d0dafdf2b3, type: 3}
   F4: {fileID: 21300000, guid: a238daa62ea27234cb56dbe3c105dfc5, type: 3}
   F5: {fileID: 21300000, guid: 5b37b61fbbe1b7b4cbed3c2e1ec1bd25, type: 3}
+  F6: {fileID: 21300000, guid: 1a440c7a9aacf324bbf571a54576e2e5, type: 3}
+  F7: {fileID: 21300000, guid: bbe8d05fae63d0d42a4e938a907979a7, type: 3}
   MH1: {fileID: 21300000, guid: f165aac23628f754b8a7c403feb39bd7, type: 3}
   MH2: {fileID: 21300000, guid: 79c69c23f02b97b4da80772b44ca39cf, type: 3}
   MH3: {fileID: 21300000, guid: 77a4890ec071a054ab1b6443921cab44, type: 3}
@@ -14256,6 +14414,16 @@ MonoBehaviour:
   FH3: {fileID: 21300000, guid: 0a3af8a69498e3246b00bcee2841993d, type: 3}
   FH4: {fileID: 21300000, guid: 9889b6c1da945f8439ee9bfc487f8ed9, type: 3}
   FH5: {fileID: 21300000, guid: a883df9fe77b52644b51a12723966345, type: 3}
+  BAR1: {fileID: 21300000, guid: f3841c5fd90be94479c78438c0534303, type: 3}
+  BAR2: {fileID: 21300000, guid: 39a0db475c9925642be829185fbca742, type: 3}
+  BAR3: {fileID: 21300000, guid: 363b0d91ba357244688e468051bf4677, type: 3}
+  BAR4: {fileID: 21300000, guid: 2fcb66ad7a8a97e45870150f40773283, type: 3}
+  BAR5: {fileID: 21300000, guid: ff9f15cc28de0c249b88ee6dd5e78fb0, type: 3}
+  RANK_ROOKIE: {fileID: 21300000, guid: 27d48da07b2d8684b872869bf96979f2, type: 3}
+  RANK_TROOPER: {fileID: 21300000, guid: 36fe29a465bcdeb4e87a036cff5f7ea4, type: 3}
+  RANK_CORPORAL: {fileID: 21300000, guid: e71a1b632cb3e9845bf702d0a1855a22, type: 3}
+  RANK_SERGEANT: {fileID: 21300000, guid: e26c31976d148e0408630891f26cf2c5, type: 3}
+  RANK_LIUTENANT: {fileID: 21300000, guid: a554510221489b14080a197908e94522, type: 3}
 --- !u!1 &2001011654
 GameObject:
   m_ObjectHideFlags: 0
