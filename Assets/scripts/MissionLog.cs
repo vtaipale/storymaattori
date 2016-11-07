@@ -133,8 +133,12 @@ public class MissionLog : MonoBehaviour {
 				
 
 				int missionRoll = Random.Range(0, 100);
-				
-				if (missionRoll< 50)
+
+				if (missionRoll< 25)
+				{
+					missionSelect = "Storm";
+				}
+				else if (missionRoll< 50)
 				{
 					missionSelect = "Liberation";
 					Mission_DIFF += 5;

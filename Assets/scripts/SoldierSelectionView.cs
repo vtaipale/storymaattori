@@ -32,9 +32,17 @@ public class SoldierSelectionView : MonoBehaviour {
 		{
 			Returnoitava += "  Priority target!\n  Expect heavy casualties!";
 		}
+		else if (log.mission.type == "Liberation")
+		{
+			Returnoitava += "  Cleanse area of enemies!\n  Expect fierce resistance!";
+		}
+		else if (log.mission.type == "Raid")
+		{
+			Returnoitava += "  Search and Destroy!";
+		}
 		else 
 		{
-			Returnoitava += "  Neutralise all hostiles.";
+			Returnoitava += "  Neutralise all hostiles!";
 		}
 
 
