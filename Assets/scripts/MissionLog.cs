@@ -249,12 +249,12 @@ public class MissionLog : MonoBehaviour {
 	public void EXPORT()
 	{
 		string returnoitava = "";
-
-		returnoitava += "Total Kills: " + control.campaing.TotalKills;
-		returnoitava += "Total Deaths: " + control.campaing.TotalDead;
-		returnoitava += "Total Missions: " + control.campaing.missionNumber;
-
+		
 		returnoitava += control.campaing.alkuteksti;
+
+		returnoitava += "Total Enemies Killed: " + control.campaing.TotalKills + "\n";
+		returnoitava += "Total Soldier Deaths: " + control.campaing.TotalDead + "\n";
+		returnoitava += "Total Missions: " + control.campaing.missionNumber + "\n";
 
 		returnoitava += "\n\n\n +++MISSIONS+++\n";
 
