@@ -25,7 +25,7 @@ public class Event_BaseIdle : MonoBehaviour {
 			idler.ChangeHealth(5);
 			idler.ChangeMorale(5);
 			
-			idler.AddEvent("\nTS:" + campaing.TimeStamp + ":\n");
+			idler.AddEvent("\nTS:" + campaing.TimeStamp + ": No mission.\n");
 
 			if ((idler.HasAttribute("wounded")) && (Random.Range(0,100) < (idler.health-20+CheckTrait("techie", 20, idler))))
 			{
@@ -58,7 +58,7 @@ public class Event_BaseIdle : MonoBehaviour {
 			if (idler.HasAttribute("depressed") && (Random.Range(0,100) < (idler.morale-20)))
 			{
 				idler.AddEvent(" Being away from the front is making life less stressful\n");
-				idler.RemoveAttribute("stressed");
+				idler.RemoveAttribute("depressed");
 				idler.ChangeMorale(30);
 				idler.ChangeHealth(10);
 

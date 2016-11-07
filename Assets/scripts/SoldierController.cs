@@ -703,7 +703,8 @@ public class SoldierController : ScriptableObject {
 			}
 			else {
 				returnoitava +=  ", " +item;
-			}returnoitava += item + ", ";
+			}
+			//returnoitava += item + ", ";
 		}
 		
 		return returnoitava;
@@ -921,7 +922,7 @@ public class SoldierController : ScriptableObject {
 			return "Sergeant";
 
 		if (rank == 4)
-			return "Liutenant";
+			return "Lieutenant";
 
 		return "Recruit";
 
