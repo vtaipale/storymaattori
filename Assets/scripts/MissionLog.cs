@@ -216,6 +216,8 @@ public class MissionLog : MonoBehaviour {
 			}
 			manager.CheckForNewSoldiers(); // Done only here, checks regardless of deaths 
 
+			ActualCampaing.CheckForNewEvents();
+
 			manager.squadIds = new int[4]{-2,-2,-2,-2};
 			manager.inSquadCurrently = 0;
 

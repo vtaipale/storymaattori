@@ -354,11 +354,15 @@ public class SoldierManager : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Checks if can create new soldiers, based on campaings MissionsToReinforcements and awainable stats.
+	/// CALLED FROM 
+	/// </summary>
 	public void CheckForNewSoldiers()
 	{
 		this.MoveDeadsAway();
 
-		if (soldiers.Count >= 12)		// 12 is number of max soldiers!
+		if (soldiers.Count > 12)		// 12 is number of max soldiers!
 		{}
 		else if (campaing.MissionsToReinforcements <= 0)
 		{

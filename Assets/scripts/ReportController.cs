@@ -157,6 +157,17 @@ public class ReportController : MonoBehaviour {
 		this.CreateNewsPopup(ToReturn,"Welcome");
 	}
 
+	public void CreateFrontChangePopup(string NewsImput){
+		
+		string ToReturn = ""; 
+
+		ToReturn += "REPORT FROM HQ:\n";
+
+		ToReturn += NewsImput;
+		
+		this.CreateNewsPopup(ToReturn,"WAR NEWS");
+	}
+
 	public void ToggleShowNewReports()
 	{
 		if (ShowNewReports == true)
