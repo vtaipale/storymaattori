@@ -4,14 +4,16 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-// Large and high up in hierarchy: it is supposed to be deposit of lore & Connectivity between scripts!!!
-// Now used mostly for timestamps and mission names
+/// <summary>
+/// Campaing
+/// Large and high up in hierarchy: it is used to be deposit of lore & Connectivity between scripts!!!
+/// </summary>
 public class Campaing : MonoBehaviour {
 
 	public int CampaingYear = 0;
 
 	public int SquadID = 4118;
-	public string SquadName = "Raccoon Squad";
+	public string SquadName = "Reaver Squad";
 
 	public string PlanetName = "Nucheron IV";
 	public string FriendName = "Human Empire";
@@ -26,7 +28,8 @@ public class Campaing : MonoBehaviour {
 
 	//for notes
 	public int missionNumber = 0;
-	public int MissionsToReinforcements = 10;
+	public int MissionsToReinforcements = 10;		//when next reinforcements come in! Checked by SoldierManager by MissionLog (AddSquad) to see when next come in!
+	public int MissionsToCampaingEvent = 10;		//when next fun stuff comes in.
 	public int TimeStamp = 0;
 	public int TotalKills = 0;
 	public int TotalDead = 0;
@@ -42,15 +45,25 @@ public class Campaing : MonoBehaviour {
 	public SoldierManager Soldiers;
 	public ButtonController ButtonCont;
 	public ReportController ReportCont;
+	public MissionLog MissionTales;
 
 	// Use this for initialization
 	void Start () {
 
 		BeginText.text = this.Begin();
-		MissionsToReinforcements = Random.Range(3,6);
+		MissionsToReinforcements = Mathf.RoundToInt(Random.Range(3,6));
+		MissionsToCampaingEvent = Random.Range(2,4) + Random.Range(2,4);	//AVG 6! - first one comes fast!
+		//MissionsToCampaingEvent = Random.Range(3,7) + Random.Range(3,7);	//AVG 10!
+		//MissionsToCampaingEvent = Random.Range(3,7) + Random.Range(3,7);	//AVG 10!
 	}
 
-
+	/// <summary>
+	/// Gets NAME for the next mission and rolls the clock forward!
+	/// Basically next round.
+	/// 
+	/// This is called by the invidinual Mission Types of Eventcontroller! (bit weird)
+	/// </summary>
+	/// <returns>"M + missionnumber"</returns>
 	public string GetNextMission(){
 
 		missionNumber++;
@@ -147,7 +160,23 @@ public class Campaing : MonoBehaviour {
 
 		Debug.Log (alkuteksti);
 
+
+		this.CreateWelcomeMessage ();
+
+
 		return alkuteksti;
+	}
+
+	private void CreateWelcomeMessage()
+	{
+		string 	WelcomeMessage = "Greetings commander!\n";
+
+		WelcomeMessage += "To you is trusted the fate of this lowly "+this.SquadName+"! Watch and guide your troopers in battle and motherbase.\n\n";
+
+		WelcomeMessage += "Currently this FRONT is stable but the situation can change rapidly.\n";
+		WelcomeMessage += "Click NEXT MISSION to send your soldiers to their first combat!\n\n";
+
+		this.ReportCont.CreateWelcomePopup(WelcomeMessage);
 	}
 
 }

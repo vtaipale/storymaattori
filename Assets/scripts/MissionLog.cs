@@ -27,7 +27,7 @@ public class MissionLog : MonoBehaviour {
 	public void AddMission ()		
 	{
 		if (manager.soldiers.Count > 3) {
-			Debug.Log ("Adding a mission...");
+			Debug.Log ("Creating New Mission.");
 
 			string target = "";
 			string missionSelect = "";

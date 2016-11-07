@@ -28,12 +28,11 @@ public class ReportController : MonoBehaviour {
 	}
 
 
-	public void CreateNewsPopup(string NewsImput){
-		//One for header and other for main text? not now, later!
+	public void CreateNewsPopup(string NewsImput, String HeaderInput){
 
 		int ThisNewsNumber = NextReportNumber();
 
-		string HeaderReturn ="Report: TS:" + campaing.TimeStamp + "/" + ThisNewsNumber + "\n"; 
+		string HeaderReturn =HeaderInput +": TS:" + campaing.TimeStamp + "/" + ThisNewsNumber + "\n"; 
 
 		string MainTextReturn = NewsImput;
 
@@ -54,6 +53,19 @@ public class ReportController : MonoBehaviour {
 		
 		NewNews.transform.localPosition = new Vector3(0f,0f,0f);		// so in correct location
 		
+	}
+
+	/// <summary>
+	/// Basic Popup. Header is REPORT: TS:XXX / YYY.
+	/// </summary>
+	/// <param name="NewsImput">News imput.</param>
+	public void CreateNewsPopup(string NewsImput){
+
+		int ThisNewsNumber = NextReportNumber();
+
+		string HeaderReturn ="Report: TS:" + campaing.TimeStamp + "/" + ThisNewsNumber + "\n"; 
+
+		this.CreateNewsPopup (NewsImput, HeaderReturn);
 	}
 
 
@@ -131,6 +143,18 @@ public class ReportController : MonoBehaviour {
 			this.CreateNewsPopup(ToReturn);
 		}
 		
+	}
+
+	
+	public void CreateWelcomePopup(string NewsImput){
+				
+		int ThisNewsNumber = NextReportNumber();
+		
+		string ToReturn = ""; 
+		
+		ToReturn += NewsImput;
+
+		this.CreateNewsPopup(ToReturn,"Welcome");
 	}
 
 	public void ToggleShowNewReports()

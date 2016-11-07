@@ -22,6 +22,7 @@ public class THINGSTODO : MonoBehaviour {
 		CAMPAING
 			moving frontlines, 
 			war situation - affects missions, mission frequency, combat and soldier morale??
+			StartText!
 
 		Battles
 			More EVENTS

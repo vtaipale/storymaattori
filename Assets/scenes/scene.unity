@@ -12385,6 +12385,7 @@ MonoBehaviour:
   PlanetAdje: dry
   missionNumber: 0
   MissionsToReinforcements: 10
+  MissionsToCampaingEvent: 10
   TimeStamp: 0
   TotalKills: 0
   TotalDead: 0
@@ -12395,6 +12396,7 @@ MonoBehaviour:
   Soldiers: {fileID: 101941925}
   ButtonCont: {fileID: 904350973}
   ReportCont: {fileID: 101941921}
+  MissionTales: {fileID: 1351749034}
 --- !u!82 &1710327572
 AudioSource:
   m_ObjectHideFlags: 0
