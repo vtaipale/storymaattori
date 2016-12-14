@@ -635,6 +635,7 @@ public class SoldierController : ScriptableObject {
 	{
 		attributes.Remove (attribute);
 	}
+
 	public bool HasAttribute (string question)	//throws nullpint if nothing in there!
 	{
 		return attributes.Contains(question);
@@ -950,6 +951,39 @@ public class SoldierController : ScriptableObject {
 		return "Recruit";
 		
 	}
+
+	public string QuickGradeSoldier(){
+	
+		float Grade = 0;
+	
+		Grade += this.skill - 100;
+
+		Grade += (this.health - 100) / 2;
+		Grade += (this.morale - 100) / 2;
+
+		Grade += this.CheckTrait ("heroic", 10);
+		Grade += this.CheckTrait ("accurate", 15);
+		Grade += this.CheckTrait ("inaccurate", -15); 
+		Grade += this.CheckTrait ("idiot", -20); 
+		Grade += this.CheckTrait ("loner", 10); 
+		Grade += this.CheckTrait ("cook", 10); 
+		Grade += this.CheckTrait ("tough", 15); 
+		Grade += this.CheckTrait ("young", 5);
+		Grade += this.CheckTrait ("drunkard", -10); 
+		Grade += this.CheckTrait ("coward", -20); 
+		Grade += this.CheckTrait ("techie", 10); 
+		Grade += this.CheckTrait ("lucky", 20); 
+
+		Grade += this.CheckTrait ("newbie", -10);
+
+		Grade += this.awards.Count * 10;
+
+		string GradeReturn = "" + Grade;
+	
+		return GradeReturn;
+	}
+
+
 	
 	public string GenerateCallSign(){
 
@@ -1122,12 +1156,40 @@ public class SoldierController : ScriptableObject {
 	public void dieHome(string how){
 				
 		this.AddHistory("-DIED@BASE-");
-		this.alive = false;
-		this.HowDied = how;
-		Debug.Log("DEAD SOLDIER: "+ this.FullName() + " HOWDIED:" + how);
+		this.die (how);
  	
 	}
 
+	/// <summary>
+	/// same as HasAttribute, yet as many other places call Attributes Traits this is used as well... Bad code smell !
+	/// </summary>
+	/// <returns><c>true</c>, if trait was checked, <c>false</c> otherwise.</returns>
+	/// <param name="TraitName">Trait name.</param>
+	public bool CheckTrait (string TraitName)
+	{
+		if (this.HasAttribute(TraitName))
+		{
+			return true;
+		}
+		return false;
+
+	}
+
+	/// <summary>
+	/// Useful for many things. If has trait/attribute, returns modifier otherwise 0. Many IF/ELSE stuff made easier!
+	/// </summary>
+	/// <returns>The trait.</returns>
+	/// <param name="TraitName">Trait name.</param>
+	/// <param name="modifier">Modifier.</param>
+	public int CheckTrait (string TraitName, int modifier)
+	{
+		if (this.HasAttribute(TraitName))
+		{
+			return modifier;
+		}
+		return 0;
+
+	}
 
 	public string toString(){
 
