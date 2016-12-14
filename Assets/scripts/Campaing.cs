@@ -172,7 +172,7 @@ public class Campaing : MonoBehaviour {
 	{
 		string 	WelcomeMessage = "Greetings commander!\n";
 
-		WelcomeMessage += "To you is trusted the fate of this lowly "+this.SquadName+"! Watch and guide your troopers in battle and motherbase.\n\n";
+		WelcomeMessage += "You are trusted with the destiny of "+this.SquadName+"! Watch and guide your troopers in battle and at the motherbase.\n\n";
 
 		WelcomeMessage += "Currently this FRONT is stable but the situation can change rapidly.\n";
 		WelcomeMessage += "Click NEXT MISSION to send your soldiers to their first combat!\n\n";

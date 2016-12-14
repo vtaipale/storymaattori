@@ -448,14 +448,14 @@ public class Event_PatrolNoEnemies : MonoBehaviour {
 		
 	}
 
-		int CheckTrait (string TraitName, SoldierController target, int modifier)
+	int CheckTrait (string TraitName, SoldierController target, int modifier)
+	{
+		if (target.HasAttribute(TraitName))
 		{
-			if (target.HasAttribute(TraitName))
-			{
-				return modifier;
-			}
-			return 0;
-			
+			return modifier;
 		}
+		return 0;
+			
+	}
 
 }
