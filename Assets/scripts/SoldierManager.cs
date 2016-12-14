@@ -304,7 +304,9 @@ public class SoldierManager : MonoBehaviour {
 			break;
 		}
 
-		// IDEA: BOOTCAMP??
+		// IDEA: EVENT BOOTCAMP??
+
+		RECRUIT.AddEvent("Recruit was given " + RECRUIT.QuickGradeSoldier() +"\n");
 
 		soldiers.Add(RECRUIT);
 		//if (RECRUIT.soldierID > 42008)	// not to the Soldiers created at the beginning!

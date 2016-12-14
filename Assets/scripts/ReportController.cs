@@ -120,7 +120,7 @@ public class ReportController : MonoBehaviour {
 
 			foreach (SoldierController solttu in Reinforcements)
 			{
-				ToReturn += solttu.AllNamesNoRANK() + "\n";
+				ToReturn += solttu.AllNamesNoRANK() + " - "+ solttu.QuickGradeSoldier() +"\n";
 			}
 				
 			this.CreateNewsPopup(ToReturn);

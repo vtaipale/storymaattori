@@ -177,7 +177,10 @@ public class Campaing : MonoBehaviour {
 		WelcomeMessage += "Currently this FRONT is stable but the situation can change rapidly.\n";
 		WelcomeMessage += "Click NEXT MISSION to send your soldiers to their first combat!\n\n";
 
+		this.ReportCont.CreateReinforcementsPopUp (Soldiers.soldiers);	// this first so it gets drawn behind!
+
 		this.ReportCont.CreateWelcomePopup(WelcomeMessage);
+
 	}
 
 

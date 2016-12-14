@@ -978,8 +978,33 @@ public class SoldierController : ScriptableObject {
 
 		Grade += this.awards.Count * 10;
 
-		string GradeReturn = "" + Grade;
-	
+		string GradeReturn = "";
+
+		//average is about +/- 5
+
+		// HQ has totally objective and definite grading system of the troops. 
+		//No, these numbers are just made up :P
+		if (Grade < -30)
+			GradeReturn = "Grade F";
+		else if (Grade < -20)
+			GradeReturn = "Grade E";
+		else if (Grade < -10)
+			GradeReturn = "Grade D";
+		else if (Grade < 0)
+			GradeReturn = "Grade D+";
+		else if (Grade < 5)
+			GradeReturn = "Grade C";	//the hopeful average
+		else if (Grade < 7.5f)
+			GradeReturn = "Grade C+";
+		else if (Grade < 10)
+			GradeReturn = "Grade B";
+		else if (Grade < 15)
+			GradeReturn = "Grade B+";
+		else if (Grade < 20)
+			GradeReturn = "Grade A";
+		else
+			GradeReturn = "Grade A+";
+
 		return GradeReturn;
 	}
 
