@@ -304,7 +304,9 @@ public class SoldierManager : MonoBehaviour {
 			break;
 		}
 
-		// IDEA: BOOTCAMP??
+		// IDEA: EVENT BOOTCAMP??
+
+		RECRUIT.AddEvent("Recruit was given " + RECRUIT.QuickGradeSoldier() +"\n");
 
 		soldiers.Add(RECRUIT);
 		//if (RECRUIT.soldierID > 42008)	// not to the Soldiers created at the beginning!
@@ -354,11 +356,15 @@ public class SoldierManager : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Checks if can create new soldiers, based on campaings MissionsToReinforcements and awainable stats.
+	/// CALLED FROM 
+	/// </summary>
 	public void CheckForNewSoldiers()
 	{
 		this.MoveDeadsAway();
 
-		if (soldiers.Count >= 12)		// 12 is number of max soldiers!
+		if (soldiers.Count > 12)		// 12 is number of max soldiers!
 		{}
 		else if (campaing.MissionsToReinforcements <= 0)
 		{

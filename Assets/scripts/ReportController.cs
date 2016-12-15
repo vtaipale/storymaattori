@@ -28,12 +28,11 @@ public class ReportController : MonoBehaviour {
 	}
 
 
-	public void CreateNewsPopup(string NewsImput){
-		//One for header and other for main text? not now, later!
+	public void CreateNewsPopup(string NewsImput, String HeaderInput){
 
 		int ThisNewsNumber = NextReportNumber();
 
-		string HeaderReturn ="Report: TS:" + campaing.TimeStamp + "/" + ThisNewsNumber + "\n"; 
+		string HeaderReturn =HeaderInput +": TS:" + campaing.TimeStamp + "/" + ThisNewsNumber + "\n"; 
 
 		string MainTextReturn = NewsImput;
 
@@ -54,6 +53,19 @@ public class ReportController : MonoBehaviour {
 		
 		NewNews.transform.localPosition = new Vector3(0f,0f,0f);		// so in correct location
 		
+	}
+
+	/// <summary>
+	/// Basic Popup. Header is REPORT: TS:XXX / YYY.
+	/// </summary>
+	/// <param name="NewsImput">News imput.</param>
+	public void CreateNewsPopup(string NewsImput){
+
+		int ThisNewsNumber = NextReportNumber();
+
+		string HeaderReturn ="Report: TS:" + campaing.TimeStamp + "/" + ThisNewsNumber + "\n"; 
+
+		this.CreateNewsPopup (NewsImput, HeaderReturn);
 	}
 
 
@@ -93,7 +105,11 @@ public class ReportController : MonoBehaviour {
 
 	public void CreateReinforcementsPopUp(List<SoldierController> Reinforcements)
 	{
-		if (Reinforcements.Count == 1)
+		if (Reinforcements.Count == 0) 
+		{
+			Debug.Log ("trying to reinforce when no soldiers needeed?!");
+		}
+		else if (Reinforcements.Count == 1)
 		{
 			bool SavingFormerStatus = this.ShowNewReports;	// save it - when many come at the same time no invidinual news!
 			campaing.ReportCont.ShowNewReports = true;
@@ -104,15 +120,31 @@ public class ReportController : MonoBehaviour {
 		}
 		else
 		{
-			string ToReturn = "--Reinforcements--\n";
-
-			foreach (SoldierController solttu in Reinforcements)
-			{
-				ToReturn += solttu.AllNamesNoRANK() + "\n";
-			}
-				
-			this.CreateNewsPopup(ToReturn);
+			this.SoldierListPopUp (Reinforcements, "Reinforcements");
 		}
+	}
+
+
+	public void SoldierListPopUp(List<SoldierController> WhoToCheck, String WhatHeader)
+	{
+		this.SoldierListPopUp (WhoToCheck, WhatHeader, false);
+	
+	}
+
+	public void SoldierListPopUp(List<SoldierController> WhoToCheck, String WhatHeader, bool ShowRank)
+	{
+		string ToReturn = "--"+WhatHeader+"--\n";
+
+		foreach (SoldierController solttu in WhoToCheck)
+		{
+			if (ShowRank)
+				ToReturn += solttu.AllNames() + " - "+ solttu.QuickGradeSoldier() +"\n";
+			else 
+				ToReturn += solttu.AllNamesNoRANK() + " - "+ solttu.QuickGradeSoldier() +"\n";
+		}	
+
+		this.CreateNewsPopup(ToReturn);
+
 	}
 
 
@@ -131,6 +163,37 @@ public class ReportController : MonoBehaviour {
 			this.CreateNewsPopup(ToReturn);
 		}
 		
+	}
+
+	
+	public void CreateWelcomePopup(string NewsImput){
+
+
+
+
+		int ThisNewsNumber = NextReportNumber(); // for the welcome message!
+
+		// SoldierCheckPopUp - first so it gets rendered below!
+;
+		this.SoldierListPopUp(this.campaing.Soldiers.soldiers,"Your Soldiers");
+
+
+		// and the actual welcomemessage!
+	
+		this.CreateNewsPopup(NewsImput,"Welcome");
+
+
+	}
+
+	public void CreateWarReport(string NewsImput){
+		
+		string ToReturn = ""; 
+
+		ToReturn += "REPORT FROM HQ:\n";
+
+		ToReturn += NewsImput;
+		
+		this.CreateNewsPopup(ToReturn,"WAR NEWS");
 	}
 
 	public void ToggleShowNewReports()

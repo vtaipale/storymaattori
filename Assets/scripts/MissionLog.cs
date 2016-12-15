@@ -27,7 +27,7 @@ public class MissionLog : MonoBehaviour {
 	public void AddMission ()		
 	{
 		if (manager.soldiers.Count > 3) {
-			Debug.Log ("Adding a mission...");
+			Debug.Log ("Creating New Mission.");
 
 			string target = "";
 			string missionSelect = "";
@@ -86,6 +86,7 @@ public class MissionLog : MonoBehaviour {
 
 			}
 			else if (MissionTypeChance < 10)		// ENEMY HQ ASSAULT MISSION! 
+//			if (true)
 			{
 				int targetSelect = Random.Range(0, 100);
 				
@@ -172,10 +173,10 @@ public class MissionLog : MonoBehaviour {
 
 			bool VictoryMatters = false;
 
-			Debug.Log ("Adding squad...");
-			Debug.Log (missions.IndexOf (mission));
-			Debug.Log (currentlyAdded);
-			Debug.Log ("mission @ " + missions [currentlyAdded]);
+//			Debug.Log ("Adding squad...");
+//			Debug.Log (missions.IndexOf (mission));
+//			Debug.Log (currentlyAdded);
+//			Debug.Log ("mission @ " + missions [currentlyAdded]);
 			missions [currentlyAdded].AddSquad (manager.GetSquad (manager.squadIds));		// Actual BATTLE
 			Debug.Log ("Fighting....");
 
@@ -186,8 +187,7 @@ public class MissionLog : MonoBehaviour {
 			}
 			else if (this.mission.type == "Patrol")
 			{
-				control.Patrol (manager.squadIds, mission.difficulty, missions [currentlyAdded]);	//needs its own, not yet implemented!
-				//VictoryMatters = true;
+				control.Patrol (manager.squadIds, mission.difficulty, missions [currentlyAdded]);
 			}
 			else if (this.mission.type == "Assault")
 			{
@@ -205,16 +205,18 @@ public class MissionLog : MonoBehaviour {
 			{
 				if (missions [currentlyAdded-1].victory == true)
 				{
-					control.campaing.Campaing_Difficulty--;
+					ActualCampaing.AssaultMissionReporting (true, missions [currentlyAdded-1].squad);
 					Debug.Log ("mission "+ mission.MissionName +"was VICTORY!");
 				}
 				else
 				{
-					control.campaing.Campaing_Difficulty++;
+					ActualCampaing.AssaultMissionReporting (false, missions [currentlyAdded-1].squad);
 					Debug.Log ("mission "+ mission.MissionName +" was defeat!");
 				}
 			}
 			manager.CheckForNewSoldiers(); // Done only here, checks regardless of deaths 
+
+			ActualCampaing.CheckForNewEvents();
 
 			manager.squadIds = new int[4]{-2,-2,-2,-2};
 			manager.inSquadCurrently = 0;

@@ -614,7 +614,7 @@ public class SoldierController : ScriptableObject {
 		
 		string returnoitava = "";
 		
-		returnoitava = this.GetFormalName_ShortRank()+ " ";
+		returnoitava = this.GetRankShort() + " ";
 		
 		returnoitava +=  this.soldierLName;
 		
@@ -954,8 +954,62 @@ public class SoldierController : ScriptableObject {
 
 	public string QuickGradeSoldier(){
 	
+		float Grade = this.QuickGradeSoldierNumber ();
+
+		string GradeReturn = "";
+
+		//average is about +/- 5
+
+		// HQ has totally objective and definite grading system of the troops. 
+		//No, these numbers are just made up :P
+		if (Grade < -40)
+			GradeReturn = "Grade F--";
+		else if (Grade < -30)
+			GradeReturn = "Grade F";
+		else if (Grade < -20)
+			GradeReturn = "Grade E";
+		else if (Grade < -10)
+			GradeReturn = "Grade D";
+		else if (Grade < 0)
+			GradeReturn = "Grade D+";
+		else if (Grade < 5)
+			GradeReturn = "Grade C";	//the hopeful average
+		else if (Grade < 7.5f)
+			GradeReturn = "Grade C+";
+		else if (Grade < 10)
+			GradeReturn = "Grade B";
+		else if (Grade < 15)
+			GradeReturn = "Grade B+";
+		else if (Grade < 20)
+			GradeReturn = "Grade A";
+		else if (Grade < 25)
+			GradeReturn = "Grade A+";
+		else if (Grade < 30)
+			GradeReturn = "Grade S";
+		else if (Grade < 35)
+			GradeReturn = "Grade S+";
+		else if (Grade < 40)
+			GradeReturn = "Grade S++";
+		else if (Grade < 45)
+			GradeReturn = "Grade X-";
+		else if (Grade < 50)
+			GradeReturn = "Grade X";
+		else if (Grade < 70)
+			GradeReturn = "Grade X+";
+		else if (Grade < 100)
+			GradeReturn = "Grade X++";
+		else if (Grade < 140)
+			GradeReturn = "Grade X+++";
+		else
+			GradeReturn = "Grade Omega";
+
+		return GradeReturn;
+	}
+
+	public float QuickGradeSoldierNumber(){
+
 		float Grade = 0;
-	
+
 		Grade += this.skill - 100;
 
 		Grade += (this.health - 100) / 2;
@@ -973,14 +1027,15 @@ public class SoldierController : ScriptableObject {
 		Grade += this.CheckTrait ("coward", -20); 
 		Grade += this.CheckTrait ("techie", 10); 
 		Grade += this.CheckTrait ("lucky", 20); 
+		Grade += this.CheckTrait ("robo", 10); 
 
 		Grade += this.CheckTrait ("newbie", -10);
+		Grade += this.CheckTrait ("depressed", -10);
 
 		Grade += this.awards.Count * 10;
 
-		string GradeReturn = "" + Grade;
-	
-		return GradeReturn;
+
+		return Grade;
 	}
 
 
