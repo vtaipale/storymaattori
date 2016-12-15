@@ -89,7 +89,6 @@ public class Event_CampaignEvents : MonoBehaviour {
 		"moving soldiers away from",
 		"not reinforcing of",
 		"not caring about",
-		"have forgotten",
 		"not liking casualties of",
 		"afraid of"
 	};
@@ -141,6 +140,24 @@ public class Event_CampaignEvents : MonoBehaviour {
 		this.MyCampaing = CampaingInsert;
 
 	}
+
+
+
+	public void GradeSoldiers(){
+
+		MyCampaing.ReportCont.SoldierListPopUp (MyCampaing.Soldiers.soldiers, "Soldier Check!",true);
+		Debug.Log ("Soldier List Printed!");
+
+		foreach (SoldierController solttu in MyCampaing.Soldiers.soldiers) 
+		{
+			solttu.AddEvent("\n" + solttu.GetFormalName() + " was graded to be " + solttu.QuickGradeSoldier()+ "!\n\n");
+			solttu.ChangeMorale(5);
+		}
+
+	}
+
+
+
 
 
 	public void CampaingEvent(string WhatToReport, string WhatToMissionLog){

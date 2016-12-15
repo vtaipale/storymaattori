@@ -30,6 +30,7 @@ public class Campaing : MonoBehaviour {
 	public int missionNumber = 0;
 	public int MissionsToReinforcements = 10;		//when next reinforcements come in! Checked by SoldierManager by MissionLog (AddSquad) to see when next come in!
 	public int MissionsToCampaingEvent = 10;		//when next fun stuff comes in.
+	public int MissionsBetweenGradings = 6;
 	public int TimeStamp = 0;
 	public int TotalKills = 0;
 	public int TotalDead = 0;
@@ -221,6 +222,10 @@ public class Campaing : MonoBehaviour {
 			this.Campaing_Difficulty += FrontChange;
 		}
 
+		if ((this.missionNumber % MissionsBetweenGradings == 0) && (this.missionNumber > 0)) 
+		{
+			Event_CampaignEvents AnotherFuntime = new Event_CampaignEvents(this);
+			AnotherFuntime.GradeSoldiers ();
 		}
 	}
 }

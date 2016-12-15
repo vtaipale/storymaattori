@@ -954,29 +954,7 @@ public class SoldierController : ScriptableObject {
 
 	public string QuickGradeSoldier(){
 	
-		float Grade = 0;
-	
-		Grade += this.skill - 100;
-
-		Grade += (this.health - 100) / 2;
-		Grade += (this.morale - 100) / 2;
-
-		Grade += this.CheckTrait ("heroic", 10);
-		Grade += this.CheckTrait ("accurate", 15);
-		Grade += this.CheckTrait ("inaccurate", -15); 
-		Grade += this.CheckTrait ("idiot", -20); 
-		Grade += this.CheckTrait ("loner", 10); 
-		Grade += this.CheckTrait ("cook", 10); 
-		Grade += this.CheckTrait ("tough", 15); 
-		Grade += this.CheckTrait ("young", 5);
-		Grade += this.CheckTrait ("drunkard", -10); 
-		Grade += this.CheckTrait ("coward", -20); 
-		Grade += this.CheckTrait ("techie", 10); 
-		Grade += this.CheckTrait ("lucky", 20); 
-
-		Grade += this.CheckTrait ("newbie", -10);
-
-		Grade += this.awards.Count * 10;
+		float Grade = this.QuickGradeSoldierNumber ();
 
 		string GradeReturn = "";
 
@@ -984,7 +962,9 @@ public class SoldierController : ScriptableObject {
 
 		// HQ has totally objective and definite grading system of the troops. 
 		//No, these numbers are just made up :P
-		if (Grade < -30)
+		if (Grade < -40)
+			GradeReturn = "Grade F--";
+		else if (Grade < -30)
 			GradeReturn = "Grade F";
 		else if (Grade < -20)
 			GradeReturn = "Grade E";
@@ -1002,10 +982,60 @@ public class SoldierController : ScriptableObject {
 			GradeReturn = "Grade B+";
 		else if (Grade < 20)
 			GradeReturn = "Grade A";
-		else
+		else if (Grade < 25)
 			GradeReturn = "Grade A+";
+		else if (Grade < 30)
+			GradeReturn = "Grade S";
+		else if (Grade < 35)
+			GradeReturn = "Grade S+";
+		else if (Grade < 40)
+			GradeReturn = "Grade S++";
+		else if (Grade < 45)
+			GradeReturn = "Grade X-";
+		else if (Grade < 50)
+			GradeReturn = "Grade X";
+		else if (Grade < 70)
+			GradeReturn = "Grade X+";
+		else if (Grade < 100)
+			GradeReturn = "Grade X++";
+		else if (Grade < 140)
+			GradeReturn = "Grade X+++";
+		else
+			GradeReturn = "Grade Omega";
 
 		return GradeReturn;
+	}
+
+	public float QuickGradeSoldierNumber(){
+
+		float Grade = 0;
+
+		Grade += this.skill - 100;
+
+		Grade += (this.health - 100) / 2;
+		Grade += (this.morale - 100) / 2;
+
+		Grade += this.CheckTrait ("heroic", 10);
+		Grade += this.CheckTrait ("accurate", 15);
+		Grade += this.CheckTrait ("inaccurate", -15); 
+		Grade += this.CheckTrait ("idiot", -20); 
+		Grade += this.CheckTrait ("loner", 10); 
+		Grade += this.CheckTrait ("cook", 10); 
+		Grade += this.CheckTrait ("tough", 15); 
+		Grade += this.CheckTrait ("young", 5);
+		Grade += this.CheckTrait ("drunkard", -10); 
+		Grade += this.CheckTrait ("coward", -20); 
+		Grade += this.CheckTrait ("techie", 10); 
+		Grade += this.CheckTrait ("lucky", 20); 
+		Grade += this.CheckTrait ("robo", 10); 
+
+		Grade += this.CheckTrait ("newbie", -10);
+		Grade += this.CheckTrait ("depressed", -10);
+
+		Grade += this.awards.Count * 10;
+
+
+		return Grade;
 	}
 
 

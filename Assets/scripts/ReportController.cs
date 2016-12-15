@@ -105,7 +105,11 @@ public class ReportController : MonoBehaviour {
 
 	public void CreateReinforcementsPopUp(List<SoldierController> Reinforcements)
 	{
-		if (Reinforcements.Count == 1)
+		if (Reinforcements.Count == 0) 
+		{
+			Debug.Log ("trying to reinforce when no soldiers needeed?!");
+		}
+		else if (Reinforcements.Count == 1)
 		{
 			bool SavingFormerStatus = this.ShowNewReports;	// save it - when many come at the same time no invidinual news!
 			campaing.ReportCont.ShowNewReports = true;
@@ -116,15 +120,31 @@ public class ReportController : MonoBehaviour {
 		}
 		else
 		{
-			string ToReturn = "--Reinforcements--\n";
-
-			foreach (SoldierController solttu in Reinforcements)
-			{
-				ToReturn += solttu.AllNamesNoRANK() + " - "+ solttu.QuickGradeSoldier() +"\n";
-			}
-				
-			this.CreateNewsPopup(ToReturn);
+			this.SoldierListPopUp (Reinforcements, "Reinforcements");
 		}
+	}
+
+
+	public void SoldierListPopUp(List<SoldierController> WhoToCheck, String WhatHeader)
+	{
+		this.SoldierListPopUp (WhoToCheck, WhatHeader, false);
+	
+	}
+
+	public void SoldierListPopUp(List<SoldierController> WhoToCheck, String WhatHeader, bool ShowRank)
+	{
+		string ToReturn = "--"+WhatHeader+"--\n";
+
+		foreach (SoldierController solttu in WhoToCheck)
+		{
+			if (ShowRank)
+				ToReturn += solttu.AllNames() + " - "+ solttu.QuickGradeSoldier() +"\n";
+			else 
+				ToReturn += solttu.AllNamesNoRANK() + " - "+ solttu.QuickGradeSoldier() +"\n";
+		}	
+
+		this.CreateNewsPopup(ToReturn);
+
 	}
 
 
@@ -147,14 +167,22 @@ public class ReportController : MonoBehaviour {
 
 	
 	public void CreateWelcomePopup(string NewsImput){
-				
-		int ThisNewsNumber = NextReportNumber();
-		
-		string ToReturn = ""; 
-		
-		ToReturn += NewsImput;
 
-		this.CreateNewsPopup(ToReturn,"Welcome");
+
+
+
+		int ThisNewsNumber = NextReportNumber(); // for the welcome message!
+
+		// SoldierCheckPopUp - first so it gets rendered below!
+;
+		this.SoldierListPopUp(this.campaing.Soldiers.soldiers,"Your Soldiers");
+
+
+		// and the actual welcomemessage!
+	
+		this.CreateNewsPopup(NewsImput,"Welcome");
+
+
 	}
 
 	public void CreateFrontChangePopup(string NewsImput){
