@@ -50,6 +50,15 @@ public class Campaing : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		if (Soldiers == null)
+			Debug.Log ("CAMPAIGN : Soldiers NULL!");
+		if (ButtonCont == null)
+			Debug.Log ("CAMPAIGN : ButtonCont NULL!");
+		if (ReportCont == null)
+			Debug.Log ("CAMPAIGN : ButtonCont NULL!");
+		if (MissionTales == null)
+			Debug.Log ("CAMPAIGN : ButtonCont NULL!");
+
 		BeginText.text = this.Begin();
 		MissionsToReinforcements = Mathf.RoundToInt(Random.Range(3,6));
 		MissionsToCampaingEvent = Random.Range(2,4) + Random.Range(2,4);	//AVG 6! - first one comes fast!
@@ -177,8 +186,6 @@ public class Campaing : MonoBehaviour {
 		WelcomeMessage += "Currently this FRONT is stable but the situation can change rapidly.\n";
 		WelcomeMessage += "Click NEXT MISSION to send your soldiers to their first combat!\n\n";
 
-		this.ReportCont.CreateReinforcementsPopUp (Soldiers.soldiers);	// this first so it gets drawn behind!
-
 		this.ReportCont.CreateWelcomePopup(WelcomeMessage);
 
 	}
@@ -188,6 +195,8 @@ public class Campaing : MonoBehaviour {
 	{
 		if (this.MissionsToCampaingEvent <= 0)
 		{
+			Event_CampaignEvents AnotherFuntime = new Event_CampaignEvents(this);
+
 			Debug.Log("NewFunCampaingEvent!");
 			this.MissionsToCampaingEvent = Random.Range(3,7) + Random.Range(3,7);	//AVG 10!
 
@@ -195,40 +204,23 @@ public class Campaing : MonoBehaviour {
 
 			if (FrontChange < 0)
 			{
-				this.ReportCont.CreateFrontChangePopup("Intelligence reports that the "+this.EnemyName+" are withdrawing some soldiers from this FRONT. Great job!");
-
-				MissionTales.missionText.text += "WAR NEWS: ENEMIES ARE WITHDRAWING TROOPS FROM THIS FRONT.\n\n";
-
-				foreach (SoldierController solttu in Soldiers.soldiers)
-				{
-					solttu.AddEvent("\nWord from HQ told that enemies are withdrawing some soldiers. A relief.\n");
-					solttu.ChangeMorale(30);
-				}
+				AnotherFuntime.CampaingEvent_Good (FrontChange);
 			}
 			else if (FrontChange < 5) 
 			{
-				this.ReportCont.CreateFrontChangePopup("According to satelites, some new enemy platoons have been sighted moving towards this FRONT.");
 
-				MissionTales.missionText.text += "WAR NEWS: ENEMIES ARE REINFORCING TROOPS OF THIS FRONT.\n\n";
+				AnotherFuntime.CampaingEvent_Neutral (FrontChange);
 
-				foreach (SoldierController solttu in Soldiers.soldiers)
-				{
-					solttu.AddEvent("\nWord from HQ more enemies are coming. Darn.\n");
-					solttu.ChangeMorale(Random.Range(-5,5));
-				}
+			
 			}
 			else if (FrontChange < 10) 
 			{
-				this.ReportCont.CreateFrontChangePopup("Major setback! Enemy regiment inbound! Expect brutal combat in this FRONT soon!");
-
-				MissionTales.missionText.text += "WAR NEWS: ENEMIES ARE BRINGING EXTRA REINFORCEMENTS TO THIS FRONT.\n\n";
-
-				foreach (SoldierController solttu in Soldiers.soldiers)
-				{
-					solttu.AddEvent("\nWord from HQ told next battles will be hard. Shit.\n");
-					solttu.ChangeMorale(-20);
-				}
+				AnotherFuntime.CampaingEvent_Bad (FrontChange);
 			}
+
+			this.Campaing_Difficulty += FrontChange;
+		}
+
 		}
 	}
 }

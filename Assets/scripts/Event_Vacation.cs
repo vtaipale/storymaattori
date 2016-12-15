@@ -23,6 +23,12 @@ public class Event_Vacation : MonoBehaviour {
 		this.MissionName = MissionNameImput;
 	}
 
+	public Event_Vacation (string MissionNameImput, SoldierController SolttuInput)
+	{
+		this.MissionName = MissionNameImput;
+		this.target = SolttuInput;
+	}
+
 	public void Handle (SoldierController NEWTARGET, int DifficultyInject, int GreatestRankInject){
 	
 		this.target = NEWTARGET;
@@ -508,13 +514,15 @@ public class Event_Vacation : MonoBehaviour {
 
 	}
 
-	private int Shots(int ConAmountLeft, int shotAmount)
+	public int Shots(int ConAmountLeft, int shotAmount)
 	{
 		int Roll = Random.Range(0, 100);
 
 		Roll += CheckTrait ("drunkard", 20); 
 		Roll += CheckTrait ("tough", 10); 
 		Roll += CheckTrait ("idiot", 5); 
+		Roll += CheckTrait ("robo-heart", 5);
+		Roll += CheckTrait ("robo-organs", 25);
 
 
 		if ( Roll > ConAmountLeft)
