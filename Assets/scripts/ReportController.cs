@@ -185,7 +185,7 @@ public class ReportController : MonoBehaviour {
 
 	}
 
-	public void CreateFrontChangePopup(string NewsImput){
+	public void CreateWarReport(string NewsImput){
 		
 		string ToReturn = ""; 
 

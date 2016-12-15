@@ -614,7 +614,7 @@ public class SoldierController : ScriptableObject {
 		
 		string returnoitava = "";
 		
-		returnoitava = this.GetFormalName_ShortRank()+ " ";
+		returnoitava = this.GetRankShort() + " ";
 		
 		returnoitava +=  this.soldierLName;
 		

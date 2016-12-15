@@ -191,6 +191,28 @@ public class Campaing : MonoBehaviour {
 
 	}
 
+	public void AssaultMissionReporting(bool victory, List<SoldierController> WhoTookPart)
+	{
+
+		Event_CampaignEvents AnotherFuntime = new Event_CampaignEvents(this);
+
+		if (victory == true) 
+		{
+
+			AnotherFuntime.AssaultMission (true,WhoTookPart);
+
+			this.Campaing_Difficulty--;
+		
+		}
+		else 
+		{
+			AnotherFuntime.AssaultMission (false,WhoTookPart);
+			this.Campaing_Difficulty++;
+
+
+		}
+		
+	}
 
 	public void CheckForNewEvents()
 	{

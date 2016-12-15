@@ -143,6 +143,32 @@ public class Event_CampaignEvents : MonoBehaviour {
 
 
 
+	public void AssaultMission(bool victory, List<SoldierController> WhoTookPart)
+	{
+		
+		string Names = "";
+
+		foreach (SoldierController solttu in WhoTookPart) { 
+			bool IfDead = MyCampaing.Soldiers.dead.Contains (solttu);
+
+			Names += solttu.GetFormalName_ShortRank();
+		
+			if (IfDead)
+				Names += " ( KIA ) ";
+
+			Names += "\n";
+		}
+
+		if (victory)
+			this.MyCampaing.ReportCont.CreateWarReport ("Command congratulates on victorious assault! The heroes: \n" + Names + "\n Enemy forces are in disarray!");
+		else
+			this.MyCampaing.ReportCont.CreateWarReport ("Failure on assault was disastrous! \n\n Enemy forces are reinforced.");
+	
+	
+
+	}
+
+
 	public void GradeSoldiers(){
 
 		MyCampaing.ReportCont.SoldierListPopUp (MyCampaing.Soldiers.soldiers, "Soldier Check!",true);
@@ -162,7 +188,7 @@ public class Event_CampaignEvents : MonoBehaviour {
 
 	public void CampaingEvent(string WhatToReport, string WhatToMissionLog){
 
-		MyCampaing.ReportCont.CreateFrontChangePopup(WhatToReport);
+		MyCampaing.ReportCont.CreateWarReport(WhatToReport);
 
 		MyCampaing.MissionTales.missionText.text += "WAR NEWS: " + WhatToMissionLog + "\n\n";
 
