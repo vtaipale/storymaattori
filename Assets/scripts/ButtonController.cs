@@ -24,20 +24,25 @@ public class ButtonController : MonoBehaviour {
 
 	public AudioSource NO;
 
+	public AudioSource DebugBling;
+
 	public void Start()
 	{
 		missions.AddMission();	//we always have one mission!
 
 	}
 
-	public void CheckDeactivateSoldierSelectionView()		//This is the GO signal, sends Soldiers to MISSION!
+	/// <summary>
+	/// The actual Mission Send Signal to Missions! Works only if with 4 soldiers (currently)
+	/// </summary>
+	public void CheckSoldierGO_SoldierView()		//This is the GO signal, sends Soldiers to MISSION!
 	{
 
 		if (manager.inSquadCurrently == 4) {
 
 			BOOM.Play ();
 
-			missions.AddSquad();
+			missions.AddSquad();	//The actual GO SIGNAL TO MISSIONS!
 			
 			this.ActivateMissionViewButton();
 			DeactivateSoldierSelectorView();
@@ -52,6 +57,49 @@ public class ButtonController : MonoBehaviour {
 
 
 	}
+
+	/// <summary>
+	/// Debug mission send: first 4 are sent with single button!
+	/// </summary>
+	public void DEBUG_Send4FirstSoldiersToBattle()	
+	{
+
+		//.soldiers{-2,-2,-2,-2}
+
+		manager.squadIds = new int[4]{0,1,2,3};
+		manager.inSquadCurrently = 4;
+
+		// so that there is some noise that tester knows game hasnt frozen much noise. 
+		DebugBling.Play ();
+
+
+		missions.AddSquad();	//The actual GO SIGNAL TO MISSIONS!
+			
+		this.ActivateMissionViewButton();
+		DeactivateSoldierSelectorView();
+		mainView.SetActive(false);
+
+
+		
+	}
+
+	/// <summary>
+	/// Sends the first 4 soldiers to a missions HowManyTimes number of times.
+	/// Quite slow. Note: does not play the correct amount of debugBlings!
+	/// </summary>
+	public void TEST_SendToMission(int HowManyTimes)
+	{
+		int Wohuuu = HowManyTimes;
+		Debug.Log("TEST SEND TO MISSION - INITIALISATION: Run " + HowManyTimes +" missions.");
+
+		for (int i = 1; i <= HowManyTimes;  i++)
+		{
+			Debug.Log("TEST SEND TO MISSION - Mission " + i +" out of " + HowManyTimes);
+			this.DEBUG_Send4FirstSoldiersToBattle();
+		}
+
+	}
+
 	
 	public void ActivateSoldierSelectorView()
 	{

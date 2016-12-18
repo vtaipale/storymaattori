@@ -213,11 +213,53 @@ public class Event_Debrief : MonoBehaviour {
 		
 	}
 
+	int CheckAward (string AwardName, int modifier)
+	{
+		if (target.HasAward(AwardName))
+		{
+			return modifier;
+		}
+		return 0;
+		
+	}
+	/// <summary>
+	/// Calculates a Promotion Score for the soldier and then promotes the soldier accordingly.
+	/// Mostly based on kills but missions and traits help.
+	/// If promotion score hits good enough rank, there is a random chance if the promotion actually happens.
+	/// Promotions at 3, 9, 21 & 41 scores.
+	/// </summary>
 	public void CheckPromotions()
 	{
-		if (this.target.kills > 1 && target.rank == 0)			//TROOPER
+
+		int PromotionScore = 0;
+
+		PromotionScore += this.target.kills;		// kills is the most important factor in ranking up
+		PromotionScore += this.target.missions/2;	
+
+		PromotionScore += this.CheckTrait ("heroic", 		1);
+		PromotionScore += this.CheckTrait ("coward", 		-2);
+		PromotionScore += this.CheckTrait ("idiot", 		-4);
+		PromotionScore += this.CheckTrait ("veteran", 		2);
+		PromotionScore += this.CheckTrait ("accurate", 		1);
+		PromotionScore += this.CheckTrait ("inaccurate", 	1);
+		PromotionScore += this.CheckTrait ("young", 		-1);
+		PromotionScore += this.CheckTrait ("drunkard", 		-2);
+		PromotionScore += this.CheckTrait ("techie", 		1);
+		PromotionScore += this.CheckTrait ("wounded", 		1);
+		PromotionScore += this.CheckTrait ("depressed", 	-1);
+		PromotionScore += this.CheckTrait ("loner", 		-1);
+		PromotionScore += this.CheckTrait ("tough", 		1);
+		PromotionScore += this.CheckTrait ("newbie", 		-2);
+
+		PromotionScore += this.CheckAward ("Bravery Medal", 2);
+		PromotionScore += this.CheckAward ("Bomb Defuse Medallion", 1);
+		PromotionScore += this.CheckAward ("Markmanship Metal", 1);
+
+		PromotionScore += Random.Range (-2, 2);	//slight randomisation
+
+		if (PromotionScore > 2 && target.rank == 0)			//TROOPER, rec score 3+ (previously 2+ kills)
 		{
-			if ((Random.Range(0, 100)+ CheckTrait("heroic",10)+ CheckTrait("drunkard",-20)) > 40)
+			if ((Random.Range(0, 100)) > 40)
 			{
 				Promote(this.target);
 				target.ChangeMorale(10);
@@ -225,13 +267,24 @@ public class Event_Debrief : MonoBehaviour {
 			}
 			else
 			{
-				target.AddEvent("Did not get deserved promotion!\n");
-				target.ChangeMorale(-20);
+				if (PromotionScore > (6-CheckTrait("heroic",2)))
+				{
+					target.AddEvent("Did not get well deserved promotion to Trooper!\n");
+					target.ChangeMorale(-30);
+				}
+				else
+				{
+					target.AddEvent("Did not get deserved promotion to Trooper!\n");
+					target.ChangeMorale(-20);
+				}
 			}
 		}
-		else if (this.target.kills > 8 && target.rank == 1)		//CORP
+
+		//Specialist rank ??
+
+		else if (PromotionScore > 8 && target.rank == 1)		//CORPORAL, rec score 10+ (previously 9+ kills)
 		{
-			if ((Random.Range(0, 100)+CheckTrait("young",-10)+CheckTrait("heroic",10)+CheckTrait("drunkard",-20)) > 50)
+			if ((Random.Range(0, 100) > 50))
 			{
 				Promote(this.target);
 				target.ChangeMorale(20);
@@ -239,13 +292,22 @@ public class Event_Debrief : MonoBehaviour {
 			}
 			else
 			{
-				target.AddEvent("Did not get deserved promotion!\n");
-				target.ChangeMorale(-30);
+				if (PromotionScore > (15-CheckTrait("heroic",3)))
+				{
+					target.AddEvent("Did not get well deserved promotion to Corporal!\n");
+					target.ChangeMorale(-40);
+				}
+				else
+				{
+					target.AddEvent("Did not get deserved promotion to Corporal!\n");
+					target.ChangeMorale(-30);
+				}
+
 			}
 		}
-		else if (this.target.kills > 20 && target.rank == 2)		//CAPT
+		else if (PromotionScore >= 20 && target.rank == 2)		//SGT,rec score 20. previously 21 kills
 		{
-			if ((Random.Range(0, 100)+CheckTrait("young",-10)+CheckTrait("heroic",10)+CheckTrait("drunkard",-20)) > 60)
+			if ((Random.Range(0, 100) > 60))
 			{
 				Promote(this.target);
 				target.ChangeMorale(30);
@@ -253,21 +315,39 @@ public class Event_Debrief : MonoBehaviour {
 			}
 			else
 			{
-				target.AddEvent("Did not get deserved promotion!\n");
-				target.ChangeMorale(-50);
+				if (PromotionScore > (25-CheckTrait("heroic",3)))
+				{
+					target.AddEvent("Did not get well deserved promotion to Sergeant!\n");
+					target.ChangeMorale(-50);
+				}
+				else
+				{
+					target.AddEvent("Did not get deserved promotion to Sergeant!\n");
+					target.ChangeMorale(-40);
+				}
+
 			}
 		}
-		else if (this.target.kills > 40 && target.rank == 3)		//LIUTENANT
+		else if (PromotionScore > 40 && target.rank == 3)		//Lieutenant, requires 40 score. prev 40+kills 
 		{
-			if ((Random.Range(0, 100)+CheckTrait("young",-10)+CheckTrait("heroic",10)+CheckTrait("drunkard",-20)) > 70)
+			if ((Random.Range(0, 100) > 70))
 			{
 				Promote(this.target);
 				target.ChangeMorale(40);
 			}
 			else
 			{
-				target.AddEvent("Did not get deserved promotion!\n");
-				target.ChangeMorale(-60);
+				if (PromotionScore > (50-CheckTrait("heroic",5)))
+				{
+					target.AddEvent("Did not get well deserved promotion to Lieutenant!\n");
+					target.ChangeMorale(-60);
+				}
+				else
+				{
+					target.AddEvent("Did not get deserved promotion to Lieutenant!\n");
+					target.ChangeMorale(-50);
+				}
+
 			}
 		}
 

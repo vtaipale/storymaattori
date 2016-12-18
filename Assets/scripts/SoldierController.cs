@@ -67,8 +67,8 @@ public class SoldierController : ScriptableObject {
 				break;
 		}
 
-		this.pictureID = (Mathf.RoundToInt(Random.Range(0, 5.4f)));
-		this.hairID = (Mathf.RoundToInt(Random.Range(1, 5.4f)));
+		this.pictureID = (Mathf.RoundToInt(Random.Range(0, 7.4f)));
+		this.hairID = (Mathf.RoundToInt(Random.Range(1, 10.4f)));
 		
 		int FNameRandomiser = Random.Range(0, 12);
 		
@@ -78,18 +78,22 @@ public class SoldierController : ScriptableObject {
 				"Smirnov",
 				"Henrik",
 				"James",
+
 				"Bolton",
 				"Arken",
 				"Damien",
 				"Piper",
 				"Tybalt",
 				"Torres",
+
 				"Gavais",
 				"Bort",
 				"Jerry",
+
 				"Bathul",
 				"Ketil",
 				"Erue",
+
 				"Frogor",
 				"Karhu",
 				"Wolfie",
@@ -101,7 +105,59 @@ public class SoldierController : ScriptableObject {
 				"Kullervo",
 				"Tumpelo",
 				"Pax",
-				"Miekka"
+				"Miekka",
+
+				"George",
+				"Walt",
+				"Tom",
+				"Julius",
+				"Aurelian",
+				"Ostar",
+				"Aum",
+				"Darfee",
+				"Leodos",
+				"Charles",
+				"Tikar",
+				"Ronald",
+				"Reuel",
+				"Falcone",
+				"Oscar",
+				"Alexander",
+				"Pavel",
+				"Obriel",
+				"Flavien",
+				"Edmund",
+				"Florian",
+
+				"Isidu",
+				"Jason",
+				"Leroy",
+				"Leon",
+				"Martin",
+				"Noel",
+				"Ronald",
+				"Thomas",
+				"Victor",
+				"Valerian",
+
+				"Mikhail",
+				"Clemency",
+				"Clive",
+				"David",
+				"Eric",
+				"Ragnar",
+				"Gabriel",
+
+				"Harrison",
+				"Arnold",
+				"Posius",
+				"Stephen",
+				"Henry",
+				"Karl",
+				"Luis"
+
+
+
 
 			};
 
@@ -135,7 +191,51 @@ public class SoldierController : ScriptableObject {
 				"Eliza",
 				"Sarah",
 				"Maura",
-				"Ilona"
+				"Ilona",
+
+				"Emma",
+				"Cora",
+				"Victoria",
+				"Eleanore",
+				"Iris",
+				"Isabel",
+				"Natalie",
+				"Maia",
+				"Mirabelle",
+				"Odette",
+				"Penelope",
+				"Seraphin",
+				"Prudentia",
+				"Valentia",
+				"Zoe",
+				"Unity",
+				"Abigail",
+				"Aleah",
+				"Alise",
+				"Angela",
+				"Berenice",
+				"Calista",
+				"Carol",
+				"Cheryl",
+				"Danica",
+				"Deanna",
+				"Dora",
+				"Evelyn",
+				"Gladys",
+				"Hailey",
+				"Ida",
+				"Isidora",
+				"Jenessa",
+				"Joan",
+				"Judi",
+				"Marie",
+				"Mercy",
+				"Misty",
+				"Kiara",
+				"Rexa"
+
+
+
 			};
 			
 			this.soldierFName = FemaleFirstNames[(Mathf.RoundToInt(Random.value*(FemaleFirstNames.GetLength(0)-1)))];
@@ -160,7 +260,6 @@ public class SoldierController : ScriptableObject {
 			"Swartz",
 			"Delifus",
 			"Grimm",
-			"Swartz",
 			"Fermen",
 			"Perho",
 			"Bortsson",
@@ -204,7 +303,123 @@ public class SoldierController : ScriptableObject {
 			"Marsh",
 			"Dinner",
 			"Dinker",
-			"Blovinsky"
+			"Blovinsky",
+
+			"Kalasnikov",
+			"Rifler",
+			"Barrelsson",
+			"Cage",
+			"Svensson",
+			"Bell",
+			"Dino",		
+			"Baron",	//lots of most used Surnames from EU, mostly from wikipedia
+			"Williams",
+			"Perez",
+			"Watson",
+			"Wilson",
+			"Taylor",
+			"Journey",
+			"Steward",
+			"Roberts",
+			"Andersson",
+			"Johansson",
+			"Bianchi",
+			"Bernasconi",
+			"Muller",
+			"Meier",
+			"Melnyk",
+			"Shevchenko",
+			"Boyko",
+			"Garcia",
+			"Fernandes",
+			"Gonzales",
+			"Novak",
+			"Kovacic",
+			"Nagy",
+			"Jovanovic",
+			"Ivanov",
+			"Kuznetsov",
+			"Popov",
+			"Popa",
+			"Radu",
+			"Silva",
+			"Santos",
+			"Ferreira",
+			"Nowak",
+			"Kovalski",
+			"Kaminski",
+			"Hansen",
+			"Olsen",
+			"Lund",
+			"Jensen",
+			"De Jong",
+			"De Vries",
+			"Van den Berg",
+			"Ceban",
+			"Cebotari",
+			"Andov",
+			"Borg",
+			"Camilleri",
+			"Vella",
+			"Schmit",
+			"Muller",
+			"Weber",
+			"Hoffman",
+			"Kazlauskas",
+			"Jankauskas",
+			"Petrauskas",
+			"Berzins",
+			"Kalnins",
+			"Ozolins",
+			"Zogaj",
+			"Gashi",
+			"Rossi",
+			"Esposito",
+			"Bianchi",
+			"Ricci",
+			"Marino",
+			"Moretti",
+			"Murphy",
+			"O'Kelly",
+			"O'Sullivan",
+			"Szabo",
+			"Varga",
+			"Angelpoulos",
+			"Nikolaidis",
+			"Georgiou",
+			"Petridis",
+			"Martin",
+			"Bernard",
+			"Dubois",
+			"Petit",
+			"Durand",
+			"Leroy",
+			"Bertrand",
+			"Korhonen",
+			"Makinen",
+			"Lehtonen",
+			"Rasmussen",
+			"Tamm",
+			"Saar",
+			"Nielsen",
+			"Pedersen",
+			"Babic",
+			"Katzarov",
+			"Peeters",
+			"Maes",
+			"Mammadov",
+			"Gruber",
+			"Huber",
+			"Bauer",
+			"Wagner",
+			"Steiner",
+			"Prifti",
+			"Stehu"
+
+
+
+
+
 		};
 	
 		this.soldierLName = LastNames[(Mathf.RoundToInt(Random.value*(LastNames.GetLength(0)-1)))];
@@ -399,7 +614,7 @@ public class SoldierController : ScriptableObject {
 		
 		string returnoitava = "";
 		
-		returnoitava = this.GetFormalName_ShortRank()+ " ";
+		returnoitava = this.GetRankShort() + " ";
 		
 		returnoitava +=  this.soldierLName;
 		
@@ -420,6 +635,7 @@ public class SoldierController : ScriptableObject {
 	{
 		attributes.Remove (attribute);
 	}
+
 	public bool HasAttribute (string question)	//throws nullpint if nothing in there!
 	{
 		return attributes.Contains(question);
@@ -488,7 +704,8 @@ public class SoldierController : ScriptableObject {
 			}
 			else {
 				returnoitava +=  ", " +item;
-			}returnoitava += item + ", ";
+			}
+			//returnoitava += item + ", ";
 		}
 		
 		return returnoitava;
@@ -706,7 +923,7 @@ public class SoldierController : ScriptableObject {
 			return "Sergeant";
 
 		if (rank == 4)
-			return "Liutenant";
+			return "Lieutenant";
 
 		return "Recruit";
 
@@ -734,6 +951,94 @@ public class SoldierController : ScriptableObject {
 		return "Recruit";
 		
 	}
+
+	public string QuickGradeSoldier(){
+	
+		float Grade = this.QuickGradeSoldierNumber ();
+
+		string GradeReturn = "";
+
+		//average is about +/- 5
+
+		// HQ has totally objective and definite grading system of the troops. 
+		//No, these numbers are just made up :P
+		if (Grade < -40)
+			GradeReturn = "Grade F--";
+		else if (Grade < -30)
+			GradeReturn = "Grade F";
+		else if (Grade < -20)
+			GradeReturn = "Grade E";
+		else if (Grade < -10)
+			GradeReturn = "Grade D";
+		else if (Grade < 0)
+			GradeReturn = "Grade D+";
+		else if (Grade < 5)
+			GradeReturn = "Grade C";	//the hopeful average
+		else if (Grade < 7.5f)
+			GradeReturn = "Grade C+";
+		else if (Grade < 10)
+			GradeReturn = "Grade B";
+		else if (Grade < 15)
+			GradeReturn = "Grade B+";
+		else if (Grade < 20)
+			GradeReturn = "Grade A";
+		else if (Grade < 25)
+			GradeReturn = "Grade A+";
+		else if (Grade < 30)
+			GradeReturn = "Grade S";
+		else if (Grade < 35)
+			GradeReturn = "Grade S+";
+		else if (Grade < 40)
+			GradeReturn = "Grade S++";
+		else if (Grade < 45)
+			GradeReturn = "Grade X-";
+		else if (Grade < 50)
+			GradeReturn = "Grade X";
+		else if (Grade < 70)
+			GradeReturn = "Grade X+";
+		else if (Grade < 100)
+			GradeReturn = "Grade X++";
+		else if (Grade < 140)
+			GradeReturn = "Grade X+++";
+		else
+			GradeReturn = "Grade Omega";
+
+		return GradeReturn;
+	}
+
+	public float QuickGradeSoldierNumber(){
+
+		float Grade = 0;
+
+		Grade += this.skill - 100;
+
+		Grade += (this.health - 100) / 2;
+		Grade += (this.morale - 100) / 2;
+
+		Grade += this.CheckTrait ("heroic", 10);
+		Grade += this.CheckTrait ("accurate", 15);
+		Grade += this.CheckTrait ("inaccurate", -15); 
+		Grade += this.CheckTrait ("idiot", -20); 
+		Grade += this.CheckTrait ("loner", 10); 
+		Grade += this.CheckTrait ("cook", 10); 
+		Grade += this.CheckTrait ("tough", 15); 
+		Grade += this.CheckTrait ("young", 5);
+		Grade += this.CheckTrait ("drunkard", -10); 
+		Grade += this.CheckTrait ("coward", -20); 
+		Grade += this.CheckTrait ("techie", 10); 
+		Grade += this.CheckTrait ("lucky", 20); 
+		Grade += this.CheckTrait ("robo", 10); 
+
+		Grade += this.CheckTrait ("newbie", -10);
+		Grade += this.CheckTrait ("depressed", -10);
+
+		Grade += this.awards.Count * 10;
+
+
+		return Grade;
+	}
+
+
 	
 	public string GenerateCallSign(){
 
@@ -792,7 +1097,63 @@ public class SoldierController : ScriptableObject {
 			"Tiger",
 			"Eagle",
 			"Bear",
-			"Zeke"
+			"Zeke",
+
+			"Cracked",
+			"Carnage",
+			"Burner",
+			"Gunsight",
+			"Olive",
+			"Terran",
+			"Spider",
+			"Dagger",
+			"Heavy",
+			"Light",
+			"Lighter",
+			"Singer",
+			"Guitar",
+			"Artist",
+			"Drummer",
+			"Basist",
+			"Scarred",
+			"Holy",
+			"One",
+			"Two",
+			"Three",
+			"Noisy",
+			"Quiet",
+			"Jumper",
+			"Treehugger",
+			"Gung-ho",
+			"Stone",
+			"Crazy", 
+			"Insane",
+			"Wicked",
+			"Bullet",
+			"Chief",
+			"Boss",
+			"Raven",
+			"Claw",
+			"Trident",
+			"Jailer",
+			"Questioner",
+			"Puker",
+			"Fighter",
+			"Scumbag",
+			"Scavenger",
+			"Raider",
+			"Berserker",
+			"Viking",
+			"Missing",
+			"Rogue",
+			"Le Terrible",
+			"What?",
+			"Sleeper",
+			"Techno",
+			"Cold",
+			"Worker",
+			"Open-Eyes"
+
 		};
 
 		this. callsign = Callsigns[(Mathf.RoundToInt(Random.value*(Callsigns.GetLength(0)-1)))];
@@ -850,12 +1211,40 @@ public class SoldierController : ScriptableObject {
 	public void dieHome(string how){
 				
 		this.AddHistory("-DIED@BASE-");
-		this.alive = false;
-		this.HowDied = how;
-		Debug.Log("DEAD SOLDIER: "+ this.FullName() + " HOWDIED:" + how);
+		this.die (how);
  	
 	}
 
+	/// <summary>
+	/// same as HasAttribute, yet as many other places call Attributes Traits this is used as well... Bad code smell !
+	/// </summary>
+	/// <returns><c>true</c>, if trait was checked, <c>false</c> otherwise.</returns>
+	/// <param name="TraitName">Trait name.</param>
+	public bool CheckTrait (string TraitName)
+	{
+		if (this.HasAttribute(TraitName))
+		{
+			return true;
+		}
+		return false;
+
+	}
+
+	/// <summary>
+	/// Useful for many things. If has trait/attribute, returns modifier otherwise 0. Many IF/ELSE stuff made easier!
+	/// </summary>
+	/// <returns>The trait.</returns>
+	/// <param name="TraitName">Trait name.</param>
+	/// <param name="modifier">Modifier.</param>
+	public int CheckTrait (string TraitName, int modifier)
+	{
+		if (this.HasAttribute(TraitName))
+		{
+			return modifier;
+		}
+		return 0;
+
+	}
 
 	public string toString(){
 

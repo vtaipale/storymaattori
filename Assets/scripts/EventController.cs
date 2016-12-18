@@ -196,6 +196,10 @@ public class EventController : MonoBehaviour {
 		this.BaseIdle();	// OOTHERS PARTYYY
 
 
+		foreach (SoldierController solttu in squad)
+		{
+			solttu.RemoveHistory("-ONMISSION-");	//The are again back at base!
+		}
 
 		//DEBRIEFING FOR EACH!
 
@@ -407,7 +411,10 @@ public class EventController : MonoBehaviour {
 		
 		this.BaseIdle();	// OOTHERS PARTYYY
 		
-		
+		foreach (SoldierController solttu in squad)
+		{
+			solttu.RemoveHistory("-ONMISSION-");	//The are again back at base!
+		}
 		
 		//DEBRIEFING FOR EACH!
 //		

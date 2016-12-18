@@ -25,7 +25,7 @@ public class Event_BaseIdle : MonoBehaviour {
 			idler.ChangeHealth(5);
 			idler.ChangeMorale(5);
 			
-			idler.AddEvent("\nTS:" + campaing.TimeStamp + ":\n");
+			idler.AddEvent("\nTS:" + campaing.TimeStamp + ": No mission.\n");
 
 			if ((idler.HasAttribute("wounded")) && (Random.Range(0,100) < (idler.health-20+CheckTrait("techie", 20, idler))))
 			{
@@ -58,7 +58,7 @@ public class Event_BaseIdle : MonoBehaviour {
 			if (idler.HasAttribute("depressed") && (Random.Range(0,100) < (idler.morale-20)))
 			{
 				idler.AddEvent(" Being away from the front is making life less stressful\n");
-				idler.RemoveAttribute("stressed");
+				idler.RemoveAttribute("depressed");
 				idler.ChangeMorale(30);
 				idler.ChangeHealth(10);
 
@@ -581,7 +581,10 @@ public class Event_BaseIdle : MonoBehaviour {
 						"eleventies",
 						"bag of star-popcorn",
 						"cookie",
-						"warm soup"
+						"warm soup",
+						"TRM",
+						"bacon sandwich",
+						"bread"
 					};
 
 					string foodInsert = foods[(Mathf.RoundToInt(Random.value*(foods.GetLength(0)-1)))];
@@ -621,7 +624,7 @@ public class Event_BaseIdle : MonoBehaviour {
 					string[] reading= new string[] 
 					{
 						"newspaper",
-						"news",
+						"news report",
 						"book",
 						"weapons manual",
 						"letter from home",
@@ -638,7 +641,7 @@ public class Event_BaseIdle : MonoBehaviour {
 					DidSomething = true;
 					break;
 				case 5:
-					idler.AddEvent(" Listened to a propaganda broadcast,\n");
+					idler.AddEvent(" Listened to a propaganda broadcast - no news from our front.\n");
 					if (Random.Range(0, 10) + CheckTrait("heroic",2, idler) > 5 )
 					{
 						idler.AddEvent("  It was inspiring!\n");
