@@ -166,6 +166,7 @@ public class Event_Battle {
 
 		target.RemoveAttribute("newbie");
 
+		// Enemy hit & killed
 		if (Roll < HitChance)
 		{
 			//target.AddKills(1); // this is done in EVENTCONTROLLER THESE DAYS!
@@ -175,6 +176,7 @@ public class Event_Battle {
 			return 1;
 		}
 
+		// no hits at all!
 		else if (Roll < BothMissChance)		// THIS SHOULD HAVE SOMETHING ELSE AS WELL!!! EVENT OR SOMETHING?
 		{
 			string monstername = monsternames[(Mathf.RoundToInt(Random.value*(monsternames.GetLength(0)-1)))];
@@ -184,28 +186,40 @@ public class Event_Battle {
 			return 0;
 			//return (target.callsign + " missed!");
 		}
+		// enemy hits player!
 		else if (Roll < SoldierHitChance)
 		{
-
-			target.ChangeHealth(-20);
-			target.ChangeMorale(-20);
-			target.AddAttribute("wounded");
-
-			if (target.health < 0){
-				addCombatEvent (true);
-				return 0;
-				//return (target.callsign + " Died!");
-			}
-
 			string monstername = monsternames[(Mathf.RoundToInt(Random.value*(monsternames.GetLength(0)-1)))];
 			string monsterADJ = monsterAdjectives[(Mathf.RoundToInt(Random.value*(monsterAdjectives.GetLength(0)-1)))];
 
 			string hurtInsert = hits[(Mathf.RoundToInt(Random.value*(hits.GetLength(0)-1)))];
 
-			Debug.Log(target.callsign + " was " + hurtInsert +" by a " +  monsterADJ + " " + monstername + "!\n");
-			target.AddEvent("Was " + hurtInsert +" by a "+  monsterADJ + " " + monstername + "!\n");
+			if (target.HasAttribute ("-HEAVYFORTIFIED-")) {
+				target.RemoveHistory ("-HEAVYFORTIFIED-");
+				target.AddHistory ("-FORTIFIED-");
+				target.AddEvent("Was almost" + hurtInsert +" by a "+  monsterADJ + " " + monstername + "but was saved by heavy cover!\n");
+			}
+			else if (target.HasAttribute ("-FORTIFIED-")) {
+				target.RemoveHistory ("-FORTIFIED-");
+				target.AddEvent("Was almost" + hurtInsert +" by a "+  monsterADJ + " " + monstername + "but was saved by cover!\n");
+			}
+			else {
 
-			//return (target.callsign + " was hit by enemy!");
+				target.ChangeHealth(-20);
+				target.ChangeMorale(-20);
+				target.AddAttribute("wounded");
+
+				if (target.health < 0){
+					addCombatEvent (true);
+					return 0;
+					//return (target.callsign + " Died!");
+				}
+
+				Debug.Log(target.callsign + " was " + hurtInsert +" by a " +  monsterADJ + " " + monstername + "!\n");
+				target.AddEvent("Was " + hurtInsert +" by a "+  monsterADJ + " " + monstername + "!\n");
+
+				//return (target.callsign + " was hit by enemy!");
+				}
 			return 0;
 
 		}

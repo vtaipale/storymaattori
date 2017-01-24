@@ -16,6 +16,7 @@ public class EventController : MonoBehaviour {
 	private Event_Battle Battle;
 	private Event_Grenade Grenade;
 	private Event_EnemyEmplacement EnemyBunker;
+	private Event_GuardIdle Boredom;
 	private Event_Retreat MoraleLost;
 	private Event_Debrief MotherBase;
 	private Event_BaseIdle MotherPeace;
@@ -472,7 +473,7 @@ public class EventController : MonoBehaviour {
 
 		this.MotherBase = new Event_Debrief();
 		this.Grave = new Event_Burial();
-
+		this.Boredom = new Event_GuardIdle ();
 
 
 		//Get new squad. 
@@ -501,65 +502,9 @@ public class EventController : MonoBehaviour {
 
 		// location PREPARATION
 
+		this.Fortify (squad);
 
 
-		foreach (SoldierController solttu in squad) {
-
-
-			int HowWellDefenceWasPutUp = Random.Range (-5, 10);
-
-			HowWellDefenceWasPutUp += solttu.CheckTrait ("idiot", -3);
-			HowWellDefenceWasPutUp += solttu.CheckTrait("young", -1);
-			HowWellDefenceWasPutUp += solttu.CheckTrait("depressed", -1);
-			HowWellDefenceWasPutUp += solttu.CheckTrait("newbie", -1);
-			HowWellDefenceWasPutUp += solttu.CheckTrait("techie", 3);
-			HowWellDefenceWasPutUp += solttu.CheckTrait("veteran", 1);
-
-			if (HowWellDefenceWasPutUp <= -6) 
-			{
-				solttu.AddEvent ( solttu.GetFormalName() + " stepped on own mine!\n");
-
-				solttu.ChangeHealth (-30);
-				solttu.ChangeMorale (-30);
-
-				if (solttu.health <= 0) 
-				{
-					solttu.AddEvent (solttu.getCallsignOrFirstname() + " stepped on own mine and got blown to bits!\n");
-					solttu.die ("Stepped on own mine");
-					solttu.AddAttribute ("wounded");
-
-					foreach (SoldierController toinenSolttu in squad) {
-						if (toinenSolttu != solttu)
-							toinenSolttu.AddEvent (solttu.getCallsignOrFirstname () + " stepped on just laid mine and died!\n");
-					}
-				}
-
-			}
-			else if (HowWellDefenceWasPutUp <= 0) 
-			{
-				solttu.AddEvent ( solttu.GetFormalName() + " did not help much with the guarding.\n");
-
-			}
-			else if (HowWellDefenceWasPutUp < 5) 
-			{
-				solttu.AddEvent ( solttu.GetFormalName() + " created splendid defences!\n");
-				solttu.gear = 20;	//gear is not used that much but now IT HELPS
-				solttu.AddHistory("-FORTIFIED-");	// can help
-
-			}
-			else
-			{
-				solttu.AddEvent ( solttu.GetFormalName() + " did OK job with setting up the defences.\n");
-				solttu.gear = 10;	//gear is not used that much but now IT HELPS
-				solttu.AddHistory("-FORTIFIED-");	// can help
-
-			}
-
-
-
-
-
-		}
 
 
 		/* 
@@ -569,12 +514,7 @@ public class EventController : MonoBehaviour {
 			this.FireFight (squad, targetlocation, Difficulty, MissionTargetDone, Retreat, EnemyRetreat);
 		else 
 		{
-			foreach (SoldierController solttu in squad) {
-
-				solttu.AddEvent ("No enemy attack, guard duty was uneventful. Woah!\n");
-				solttu.ChangeMorale(20+solttu.CheckTrait("coward",20));
-
-			}
+			Boredom.GuardBoredom (squad, missionImput);
 		}
 
 
@@ -583,9 +523,10 @@ public class EventController : MonoBehaviour {
 
 
 
-
+		// Return from mission: these are not needed anymore!!!
 		foreach (SoldierController solttu in squad) {
 			solttu.RemoveHistory("-FORTIFIED-");
+			solttu.RemoveHistory ("-HEAVYFORTIFIED-");
 			solttu.gear = 0;
 		}
 
@@ -915,6 +856,77 @@ public class EventController : MonoBehaviour {
 				
 			}
 		}
+
+	}
+
+
+	private void Fortify(List<SoldierController> squad)
+	{
+		foreach (SoldierController solttu in squad) {
+
+
+			int HowWellDefenceWasPutUp = Random.Range (-5, 10);
+
+			HowWellDefenceWasPutUp += solttu.CheckTrait ("idiot", -3);
+			HowWellDefenceWasPutUp += solttu.CheckTrait("young", -1);
+			HowWellDefenceWasPutUp += solttu.CheckTrait("depressed", -1);
+			HowWellDefenceWasPutUp += solttu.CheckTrait("newbie", -1);
+			HowWellDefenceWasPutUp += solttu.CheckTrait("techie", 3);
+			HowWellDefenceWasPutUp += solttu.CheckTrait("veteran", 1);
+
+			if (HowWellDefenceWasPutUp <= -6) 
+			{
+				solttu.AddEvent ( solttu.GetFormalName() + " stepped on own mine!\n");
+
+				solttu.ChangeHealth (-30);
+				solttu.ChangeMorale (-30);
+
+				if (solttu.health <= 0) 
+				{
+					solttu.AddEvent (solttu.getCallsignOrFirstname() + " stepped on own mine and got blown to bits!\n");
+					solttu.die ("Stepped on own mine");
+					solttu.AddAttribute ("wounded");
+
+					foreach (SoldierController toinenSolttu in squad) {
+						if (toinenSolttu != solttu)
+							toinenSolttu.AddEvent (solttu.getCallsignOrFirstname () + " stepped on just laid mine and died!\n");
+					}
+				}
+
+			}
+			else if (HowWellDefenceWasPutUp <= 0) 
+			{
+				solttu.AddEvent ( solttu.GetFormalName() + " did not help much with the guarding.\n");		//needs more details! and types of slacking off..
+
+			}
+			else if (HowWellDefenceWasPutUp < 5) 
+			{
+				solttu.AddEvent ( solttu.GetFormalName() + " created splendid defences!\n");
+				solttu.gear = 20;	//gear is not used that much but now IT HELPS
+				solttu.AddHistory("-FORTIFIED-");	// can help
+
+			}
+			else if (HowWellDefenceWasPutUp < 8 ) 
+			{
+				solttu.AddEvent ( solttu.GetFormalName() + " created magnific fortification!\n");
+				solttu.gear = 25;	//gear is not used that much but now IT HELPS
+				solttu.AddHistory("-HEAVYFORTIFIED-");	// can help
+
+			}
+			else
+			{
+				solttu.AddEvent ( solttu.GetFormalName() + " did OK job with setting up the defences.\n");
+				solttu.gear = 10;	//gear is not used that much but now IT HELPS
+				solttu.AddHistory("-FORTIFIED-");	// can help
+
+			}
+
+
+
+
+
+		}
+
 
 	}
 
