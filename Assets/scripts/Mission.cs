@@ -46,14 +46,29 @@ public class Mission : MonoBehaviour {
 		{
 			this.Hostiles += Mathf.FloorToInt(Random.Range(1,4));
 		}
-		if (this.type=="Patrol")	// Chance to encounter enemies is randomised HERE instead of actual play!
+		else if (this.type=="Patrol")	// Chance to encounter enemies is randomised HERE instead of actual play!
 		{
 			int EnemyEncounterChance = this.difficulty - 50;	// often will be about 50ish
 
-			if (Random.Range (0,100) > EnemyEncounterChance) // NO ENEMIES
+			if (Random.Range (0,100) < EnemyEncounterChance) // NO ENEMIES
 			{
 				this.Hostiles = 0;
 				this.victory = true; // no enemies = victory is assured?? (for now at least)
+			}
+		}
+		else if (this.type=="Guard")	// Either no attack, standard amount of troops OR big attack!
+		{
+			int EnemyEncounterChance = this.difficulty - 30;	// often will be about 50ish
+
+			if (Random.Range (0,100) < EnemyEncounterChance/2 ) // Major attack!
+			{
+				this.Hostiles += Mathf.FloorToInt(Random.Range(1,3) + Random.Range(1,3)); //another 2-6 soldiers MORE to the dun
+			
+			}
+			else if (Random.Range (0,100) < EnemyEncounterChance) // NO ENEMIES
+			{
+				this.Hostiles =0;
+				this.victory = true; // no enemies = victory is assured?? (for now at least
 			}
 		}
 		else if (this.type=="Vacation")
@@ -105,6 +120,11 @@ public class Mission : MonoBehaviour {
 					returned += "--The location was clear of enemy activity!\n";
 					
 				}
+				else if (this.type == "Guard" && this.Hostiles == 0)	//special bit for non-combat patrol missions
+				{
+					returned += "--The location was not attacked!\n";
+
+				}
 				else
 				{
 					if (this.type == "Patrol") // if partrol where is enemies print this special addition
@@ -152,6 +172,17 @@ public class Mission : MonoBehaviour {
 			if (this.type != "Vacation")
 			{
 				if (this.type == "Patrol")
+				{
+					if (this.Hostiles == 0 && retreat == false)
+					{
+						returned += "--Mission was a SUCCESS!\n";
+					}
+					else
+					{
+						returned += this.StandardMissionResults();
+					}
+				}
+				else if (this.type == "Guard")
 				{
 					if (this.Hostiles == 0 && retreat == false)
 					{
