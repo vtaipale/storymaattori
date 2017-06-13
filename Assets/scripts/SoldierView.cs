@@ -6,6 +6,8 @@ using System.Collections.Generic;
 
 //Shows details of Soldier at SQUADVIEW. 
 
+// Threw INDEX ARRAY ERROR - 13.6.2017!
+
 public class SoldierView : MonoBehaviour {
 
 	public SoldierManager WhereToDrawSoldiers;

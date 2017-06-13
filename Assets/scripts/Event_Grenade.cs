@@ -135,46 +135,56 @@ public class Event_Grenade : MonoBehaviour {
 					}
 					else
 					{
-						target.ChangeHealth(Random.Range(-20, -5) + Random.Range(-20, -5));	//nasty!
-						target.ChangeMorale(-30);
-						target.AddAttribute("wounded");
+						if (target.HasHistory ("-HEAVYFORTIFIED-")) {
+							target.RemoveHistory ("-HEAVYFORTIFIED-");
+							target.AddHistory ("-FORTIFIED-");
+							target.AddEvent ("Heavy cover protected from grenade blast!\n");
+						} else if (target.HasHistory ("-FORTIFIED-")) {
+							target.RemoveHistory ("-FORTIFIED-");
+							target.AddEvent ("Cover protected from grenade blast!\n");
+						} 
+						else {
+
+							target.ChangeHealth (Random.Range (-20, -5) + Random.Range (-20, -5));	//nasty!
+							target.ChangeMorale (-30);
+							target.AddAttribute ("wounded");
 
 
-						if (target.health < 0){
+							if (target.health < 0) {
 
-							this.TargetKIA(target);
+								this.TargetKIA (target);
+							}
+
+							int TextRandomiser = (Mathf.RoundToInt (Random.Range (0, 6)));
+
+							string damagetype = "";
+
+							switch (TextRandomiser) {
+							case 0:
+								damagetype = "wounded";
+								break;
+							case 1:
+								damagetype = "rended";
+								break;
+							case 2:
+								damagetype = "thrown";
+								break;
+							case 3:
+								damagetype = "hit";
+								break;
+							case 4:
+								damagetype = "plasmad";
+								break;
+							case 5:
+								damagetype = "grazed";
+								break;
+							default:
+								damagetype = "burned";
+								break;
+							}
+
+							target.AddEvent ("Was " + damagetype + " by enemy grenade!\n");
 						}
-
-						int TextRandomiser = (Mathf.RoundToInt(Random.Range(0, 6)));
-
-						string damagetype = "";
-
-						switch (TextRandomiser)
-						{
-						case 0:
-							damagetype = "wounded";
-							break;
-						case 1:
-							damagetype = "rended";
-							break;
-						case 2:
-							damagetype = "thrown";
-							break;
-						case 3:
-							damagetype = "hit";
-							break;
-						case 4:
-							damagetype = "plasmad";
-							break;
-						case 5:
-							damagetype = "grazed";
-							break;
-						default:
-							damagetype = "burned";
-							break;
-						}
-
-						target.AddEvent ("Was "+ damagetype + " by enemy grenade!\n");
 					}
 				}
 			}

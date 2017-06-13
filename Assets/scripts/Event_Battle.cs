@@ -194,12 +194,12 @@ public class Event_Battle {
 
 			string hurtInsert = hits[(Mathf.RoundToInt(Random.value*(hits.GetLength(0)-1)))];
 
-			if (target.HasAttribute ("-HEAVYFORTIFIED-")) {
+			if (target.HasHistory ("-HEAVYFORTIFIED-")) {
 				target.RemoveHistory ("-HEAVYFORTIFIED-");
 				target.AddHistory ("-FORTIFIED-");
 				target.AddEvent("Was almost" + hurtInsert +" by a "+  monsterADJ + " " + monstername + "but was saved by heavy cover!\n");
 			}
-			else if (target.HasAttribute ("-FORTIFIED-")) {
+			else if (target.HasHistory ("-FORTIFIED-")) {
 				target.RemoveHistory ("-FORTIFIED-");
 				target.AddEvent("Was almost" + hurtInsert +" by a "+  monsterADJ + " " + monstername + "but was saved by cover!\n");
 			}
