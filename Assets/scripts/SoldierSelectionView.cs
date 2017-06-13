@@ -20,7 +20,11 @@ public class SoldierSelectionView : MonoBehaviour {
 
 		Returnoitava += log.mission.type + " " + log.mission.location + "\n";
 
-		if (log.mission.type == "Patrol")
+		if (log.mission.type == "Guard")
+		{
+			Returnoitava += "  Defend the location.\n  Prepare for enemy attack.";
+		}
+		else if (log.mission.type == "Patrol")
 		{
 			Returnoitava += "  Recon the area.\n  Potential hostiles.";
 		}

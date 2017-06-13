@@ -35,7 +35,34 @@ public class MissionLog : MonoBehaviour {
 
 			int MissionTypeChance = Random.Range(0, 100); 
 
-			if (MissionTypeChance > 90)	//PATROL!
+			//if (MissionTypeChance > 90)	//GUARD/Defence!
+			if (true)	//testing! 
+			{
+				int targetSelect = Random.Range(0, 100);
+
+				if (targetSelect< 25)
+				{
+					target = "Bunker #" + Random.Range(101, 999);
+				}
+				if (targetSelect< 50)
+				{
+					target = "Town #" + Random.Range(101, 999);
+				}
+				else if (targetSelect< 75)
+				{
+					target = "Array #" + Random.Range(101, 999);
+				}
+				else
+				{
+					target = "Outpost #" + Random.Range(101, 999);
+				}
+
+				missionSelect = "Guard";
+
+
+			}
+
+			else if (MissionTypeChance > 90)	//PATROL!
 			{
 				int targetSelect = Random.Range(0, 100);
 				
@@ -180,6 +207,12 @@ public class MissionLog : MonoBehaviour {
 			missions [currentlyAdded].AddSquad (manager.GetSquad (manager.squadIds));		// Actual BATTLE
 			Debug.Log ("Fighting....");
 
+			if (this.mission.type == "Guard")
+			{
+				control.Guard (manager.squadIds, mission.difficulty, missions [currentlyAdded]);
+
+			}
+			else 
 			if (this.mission.type == "Vacation")
 			{
 				control.Vacate (manager.squadIds, mission.difficulty, missions [currentlyAdded]);
