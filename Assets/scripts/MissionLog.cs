@@ -35,8 +35,8 @@ public class MissionLog : MonoBehaviour {
 
 			int MissionTypeChance = Random.Range(0, 100); 
 
-			//if (MissionTypeChance > 90)	//GUARD/Defence!
-			if (true)	//testing! 
+			if (MissionTypeChance > 90)	//GUARD/Defence!
+			//if (true)	//testing! 
 			{
 				int targetSelect = Random.Range(0, 100);
 
