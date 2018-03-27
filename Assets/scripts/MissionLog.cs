@@ -33,10 +33,12 @@ public class MissionLog : MonoBehaviour {
 			string missionSelect = "";
 			int Mission_DIFF = Random.Range((control.campaing.Campaing_Difficulty - 20), (control.campaing.Campaing_Difficulty + 20));
 
-			int MissionTypeChance = Random.Range(0, 100); 
+			int MissionTypeChance = Random.Range(0, 100); //what kind of mission this time? should campaigndifficulty affect mission types? escalation!
 
-			//if (MissionTypeChance > 90)	//GUARD/Defence!
-			if (true)	//testing! 
+			//todo: too much copypaste! some kind of factory or method to do this
+
+			if (MissionTypeChance > 90)	//GUARD/Defence!
+			//if (true)	//testing! 
 			{
 				int targetSelect = Random.Range(0, 100);
 
@@ -62,7 +64,7 @@ public class MissionLog : MonoBehaviour {
 
 			}
 
-			else if (MissionTypeChance > 90)	//PATROL!
+			else if (MissionTypeChance > 80)	//PATROL!
 			{
 				int targetSelect = Random.Range(0, 100);
 				
@@ -87,7 +89,7 @@ public class MissionLog : MonoBehaviour {
 				
 				
 			}
-			else if (MissionTypeChance > 80)	//Partyparty!
+			else if (MissionTypeChance > 70)	//Partyparty!
 			{
 				int targetSelect = Random.Range(0, 100);
 				

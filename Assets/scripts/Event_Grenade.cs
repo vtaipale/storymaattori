@@ -192,7 +192,7 @@ public class Event_Grenade : MonoBehaviour {
 		else {
 			// the hero gets hurt!
 
-			Hero.AddEvent ("Jumped on a grenade to save rest of the squad!");
+			Hero.AddEvent ("Jumped on a grenade to save rest of the squad!"); 
 
 			Hero.ChangeHealth(Random.Range(-50, -15) + Random.Range(-50, -15));	//100 to 30 damage. Chance to survive!
 			Hero.ChangeMorale(+20);
@@ -208,7 +208,7 @@ public class Event_Grenade : MonoBehaviour {
 
 			}
 			else {
-				Hero.AddEvent(Hero.getCallsignOrFirstname() + "survived!!\n");
+				Hero.AddEvent( " " + Hero.getCallsignOrFirstname() + "survived!!\n");
 				Hero.ChangeMorale(20);	//WHOAH
 			}
 			foreach (SoldierController reacter in squad)

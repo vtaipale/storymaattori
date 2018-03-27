@@ -885,7 +885,7 @@ public class EventController : MonoBehaviour {
 				{
 					solttu.AddEvent (solttu.getCallsignOrFirstname() + " stepped on own mine and got blown to bits!\n");
 					solttu.die ("Stepped on own mine");
-					solttu.AddAttribute ("wounded");
+					//solttu.AddAttribute ("wounded");
 
 					foreach (SoldierController toinenSolttu in squad) {
 						if (toinenSolttu != solttu)
